@@ -1,0 +1,38 @@
+# Install any IDE that you like 
+---> I am a windows user, & I love using VS Code 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# Install MinGW "g++" compiler: 
+---> It will help us in compiling our C++ code files 
+
+
+# For Installing "g++" compiler: 
+
+---> Go to "mingw-w64.org" 
+---> Go to "Downloads" 
+---> Now go to "MingW-W64-builds" 
+---> Now click on "Installation: GitHub" 
+---> You will be redirected to a GitHub page 
+---> Here Click and Download the latest version MinGW Folder which has this keyword in it's name "posix-seh" 
+---> Extract all the files from this downladed folder 
+---> Now make a new folder named "MinGW" in your computer's "C-Drive" and cut paste all the extracted files in that folder 
+---> Now in your "C-Drive" you're in the newly created "MinGW" folder, and in that folder all the folders and files that you have extracted are present, now out of all these folders which are present, go to "Bin" folder 
+---> Copy the path to this "Bin" folder 
+---> Press "Windows" button on your keyboard and search "Edit the system environment variables" 
+---> Click on "Environment Variables" button, which is present in bottom right corner 
+---> Now below in "System Variables" section, click on "Path" and then on "Edit" button which is present in botton right corner 
+---> Here click on "New" Button, paste the copied path here and press "Ok, ok & ok" and close all the tabs of this "Edit the system environment variables" section 
+---> Now you have successffuly installed the "g++" compiler 
+---> to check whether it is successfully installed or not, open "Command Prompt" and type "g++ --version" 
+---> If you have done all the steps correctly and if your "g++" compiler is installed successfully then this comand will tell you the version of the "g++" compiler that you have installed in your PC 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+
