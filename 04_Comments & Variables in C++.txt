@@ -1,0 +1,119 @@
+# Comments:
+
+
+(i) // Write content here ---> These are single line comments 
+
+(ii) /* Write content here */ ---> These are multi line comments 
+
+(iii) Or else you can also select mutiple lines and then press "ctrl + /" to comment them together, but this method uses single line comment to comment multiple lines, still there is no problem in it you can uncomment all those lines together again using same method, select them and again press "ctrl + /" 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# Variables: 
+
+
+* Variable is just a container to hold data 
+
+* Scope of Variable is the region in code, where variable is valid 
+
+** On the basis of scope, varibale are of two types:
+(i) Local 
+(ii) Global 
+
+* Local varibales are declarded inside the braces of any function and can be accessed only from there. 
+
+* Global varaibles are declared outside any function and can be accessed from anywhere. 
+
+* Local & Global variables don't have default values. 
+
+
+// Local and Global variables can have same name in C++ 
+
+// Just the thing is that local variables have higher precedence than global variables 
+
+// So, by default scope is local inside a block, and if you have two variables named "var", where one is local and another is global, and if you want to print value of "var" inside from any function where locally "var" variable is present then it will always print value of local "var", but in this condition if you want to neglect the local "var's" value and if you want to print value of global "var" then you can use "scope resolution (::)" operator with "var" while printing "var's" value to print global "var's" value 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example-1 Code:
+
+
+#include<iostream>
+using namespace std;
+
+int var = 10;
+
+int main(){
+
+    // This code will print value of local variable "var"
+
+    int var = 20;
+
+    cout<<var;
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example-2 Code:
+
+
+#include<iostream>
+using namespace std;
+
+int var = 10;
+
+int main(){
+
+    // This code will print value of global variable "var"
+
+    int var = 20;
+
+    cout<<::var;
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# Intialization & Declaration of Varibale:
+
+
+int a;    // This is called declaration of variable 
+a = 100;  // This is called initiallization of variable 
+
+// Here above "int" is the datatype, "a" is the name of variable, "=" equal to symbol is the assignment operator, it is used to assign values to variales & "100" value is called an "Integer Literal" which is beign assigned to the variable "a".
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# Rules to declare variables in C++: 
+
+
+a) Variable name in C++ can range from 1 to 255 characters 
+
+b) All variable names must begin with a letter of the alphabet or an underscore 
+
+c) After the first initial letter, variable names can also contain letters and numbers 
+
+d) Variable name are case sensitive 
+
+e) No spaces or special characters are allowed 
+
+f) You cannot use a C++ keyword (a reserved word) as a variable name e.g.: void, class, int, etc. 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+
