@@ -1,0 +1,44 @@
+# Header Files: 
+
+
+* There are two types of header files: 
+
+(i) System header files ---> They come with compiler 
+e.g.: #incude<iostream>
+
+(ii) User defined header files ---> These are written by programmer 
+e.g.: #include "this.h" ---> There should be a file named "this.h" in the directory otherwise this line will give error 
+
+
+* If you want to know details about any system header file then you can refer this website "en.cppreference.com/w/cpp/header"
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Operators:
+
+
+* Arithmetic Operators ---> + , - , * , / , % (modulo operator) , ++ (increment operator) , -- (decrement operator) 
+
+* Assignment Operators ---> = (it is used to assign values to variables) , += , -=, *= , /= , etc. 
+
+* Comparison Operators ---> == , != , > , < , >= , <= 
+
+* Logical Operators ---> && , || , ! (Not Operator) 
+
+* Bitwise Operators ---> >> (right shift) , << (left shift) , etc.
+
+
+// Out of all the operators in C++, the scope resolution operator "::" has the highest precedence and comma operator "," has the least precedence 
+
+// For checking precedence of other operators, you can refer this website: 
+en.cppreference.com/w/cpp/language/operator_precedence 
+
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+
