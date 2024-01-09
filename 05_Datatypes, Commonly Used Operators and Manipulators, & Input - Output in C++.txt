@@ -1,0 +1,61 @@
+
+# Data Types: 
+
+
+* Int, Float, Char, Double & Boolean these are called the primitive / built-in datatypes in C++ & these are some of the most used built-in datatypes of C++  
+
+* By default a decimal literal is of "double" type 
+
+* & to specify float we use 'f' or 'F' char after the decimal value 
+
+* & to specify long double we use 'l' or 'L' char after the decimal value 
+
+
+* Data types define the type of data a variable can hold 
+
+** Data types can be of 3 types:
+(i) Primitive / Built-in ---> Int, Float, Char, etc.
+(ii) User-defined ---> Struct, Union, Enum, etc. 
+(iii) Derived ---> Arrays, Functions, Pointers, etc. 
+
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# Some Commonly Used Operators & Manipulators Which were not Well Known to Me Before: 
+
+
+:: ---> Scope resolution operator 
+; ---> Terminator 
+<< ---> Insertion Operator (Sends bytes to an output stream obejct) 
+>> ---> Extraction Operator (Easiest way to get bytes from an input stream object) 
+endl (end of line) & \n (escape sequence) ---> are used to start the new line 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# Input & Output:
+
+
+* cin & cout are two functions present in "iostream" header file, and they are used for taking inputs and printing outputs, respectively
+
+* we use "Extraction" & "Insertion" operator with "cin" and "cout" respectively 
+
+* Inside the "iostream" header file, specifially cin & cout are present in standard namespace, A.K.A "namespace std" 
+
+* A namespace is a declarative region that provides a scope to the identifiers (the names of types, functions, variables, etc) inside it.
+
+* Namespaces are used to organize code into logical groups and to prevent name collisions that can occur especially when your code base includes multiple libraries
+
+* even "endl" belongs to standard namespace, it is a manipulator, we just talked about it above  
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+
