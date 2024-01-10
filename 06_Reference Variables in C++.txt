@@ -1,0 +1,50 @@
+# Reference Variables: 
+
+
+* Reference variable is just a variable which point towards other variable 
+
+* For example: My name is "Aryan Tomar", One of my teachers with mother tounge influence used to call me "Uryan" & My chilhood KV school friends often call me by my surname "Tomar", and from this you can notice that I am known by multiple nicknames by different different peoples but my real name is "Aryan Tomar" and by whichever nickname you call me, the person you're referring to dosen't change, it's me only 
+
+---> Like that, reference variables are just a new nickname for an already exsiting variable, don't confuse that they're copy of a variable, they are not copy, they are just pointing towards an already existing variable and hence if you check the address of an already exisiting variable and it's reference variable then you will see that both will give you the same output, both will be having same address 
+
+---> Check out this code, where you will see the syntax of making reference variables and you will understand even better that what refernece variables really are: 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Code:
+
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+    int a = 100;
+    int &b = a;        // here 'b' is a reference variable, pointing towards already existing variable 'a'
+    // and this above is the syntax of making  refernce variables (datatype &[name of reference variable] = [name of already existing variable that it wants to point towards])
+
+    cout<<a<<endl;
+    cout<<b<<endl;
+    
+    // here you will see both a & b have same value because a = 100 and 'b' is pointing towards 'a' 
+    // so, it simply means that 'b' is not a copy of 'a' it doesn't really stores any value but it's just a nickname of 'a' variable
+    // and these nicknames of variables are called "reference variables" 
+    // now if you call 'a' or 'b' both refer to the same value 100, just as I stated in my above example 
+
+    cout<<&a<<endl;
+    cout<<&b<<endl;
+
+    // See, both, the variable and the reference variable have the same address because 'a' varaible has some memory allocated to it, where the data is stored, and 'b' is just a nickname of 'a' variable, so it also point towards the same memory and gives the same data output when we print it's value
+
+    // and always remember that "reference variable" is not a copy of an "already exisiting variable", but instead it's just a "nickname" of "already exisiting variable" 
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+
