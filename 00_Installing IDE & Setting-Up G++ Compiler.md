@@ -31,8 +31,6 @@
 
 - Popular examples of IDEs include `Visual Studio Code`, `Eclipse`, `IntelliJ IDEA`, and `Xcode`. They help streamline the development process by integrating multiple development tools into a single application, enhancing productivity and efficiency.
 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
 
 # Install MinGW "g++" compiler: 
 - It will help us in compiling our C++ code files 
@@ -126,7 +124,7 @@ x86_64-13.2.0-release-win32-seh-ucrt-rt_v11-rev0.7z
 - If you have done all the steps correctly and if your "g++" compiler is installed successfully then this command will tell you the version of the "g++" compiler that you have installed in your PC 
 
 
-### Response of "g++ --version" command in Command Prompt: 
+### Response of "g++ --version" command in My PC's Command Prompt: 
 
 ```
 g++ (x86_64-win32-seh-rev0, Built by MinGW-Builds project) 13.2.0  
