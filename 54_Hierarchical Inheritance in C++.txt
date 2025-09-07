@@ -1,0 +1,103 @@
+# Hierarchical Inheritance in C++: 
+
+
+* When more than one derived class is inherited from one base class then it's called Heirarchical Inheritance. 
+
+
+# Understand this concept with this example and try to visualize it: 
+
+* Example: We 4 classes "Employee", "Software_Developer", "Manager" & "Sales_Person" and out of these 4 classes, 3 classes are derived from only one base class "Employee", this type of inheritence is called "Hierarchical Inheritance" and this one is a good example of it. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+ 
+
+# Example Code for Hierarchical Inheritance: 
+
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+// This is the base class 
+class Employee{
+    protected:
+        int empId;
+        string empName;
+        int empSalary;
+    public: 
+        void setData(int a, string b, int c){
+            empId = a;
+            empName = b;
+            empSalary = c;
+        }
+};
+
+
+// This is the 1st derived class which has inherited the base class 
+class Software_Developer : public Employee{
+    public: 
+        void getDeveloperInfo(void){
+            cout << "* I am a developer and my employee Id is: " << empId << endl; 
+            cout << "* My name is: " << empName << endl; 
+            cout << "* And my salary is: " << empSalary << endl; 
+            cout << endl; 
+        }
+};
+
+
+// This is the 2nd derived class which has inherited the base class 
+class Manager : public Employee{
+    public: 
+        void getManagerInfo(void){
+            cout << "* I am a manager and my employee Id is: " << empId << endl; 
+            cout << "* My name is: " << empName << endl; 
+            cout << "* And my salary is: " << empSalary << endl; 
+            cout << endl; 
+        }
+};
+
+
+// This is the 3rd derived class which has inherited the base class 
+class Sales_Person : public Employee{
+    public: 
+        void getSalesPersonInfo(void){
+            cout << "* I am a sales person and my employee Id is: " << empId << endl; 
+            cout << "* My name is: " << empName << endl; 
+            cout << "* And my salary is: " << empSalary << endl; 
+            cout << endl; 
+        }
+};
+
+
+int main(){
+
+    Software_Developer sde;
+    sde.setData(10, "Aryan", 3000);
+
+    Software_Developer senior_sde;
+    senior_sde.setData(1, "Harry Bhaiya Dangerous Coder", 50000000);
+
+    sde.getDeveloperInfo();
+    senior_sde.getDeveloperInfo();
+
+
+    Manager m;
+    m.setData(2, "Dangerous Manager", 10000000);
+    m.getManagerInfo();
+
+
+    Sales_Person sp;
+    sp.setData(3, "Kuch Bhi Bech Sakta Hun", 30000000);
+    sp.getSalesPersonInfo();
+
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+

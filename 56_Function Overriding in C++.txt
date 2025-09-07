@@ -1,0 +1,165 @@
+# Function Overriding in C++: 
+
+
+* Function overriding is a concept connected to inheritance. 
+
+* In inheritance, when a base class have a function with some name and signature (signature means parameters and their data types) then whenever this base class derives a new class. 
+
+* This new derived class then gets all the inheritable members of the base class and let's say this above function about which we were discussing was inheritable and it got inherited. 
+
+* Now the derived class also have that function, but if there is a function defined in the derived class also, which have the same name and signature as of that inherited function then this function which is defined in the derived class overrides the function which has the same name and signature and was inherited from the base class. 
+
+
+@ So, in easy terms "Function Overriding" means that if a function have same name and signature in both "Base" and "Derived" class then the definiton of that function inside the "Derived Class" just redefines the definition which it has inherited from the "Base Class". 
+
+@ Function overriding is an implementation of the "Run-time Polymorphism". So, it overrides the function at the run-time of the program. 
+---> We haven't studied these topics yet, "Polymorphism" and "Run-Time Polymorphism" until now. So, don't take tension we will study these topics ahead, but the only thing that yous should grasp from the above statement is that "Function Overriding" happens at "Run-Time of a Program" and not at "Compile Time". 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Understand this concept with this example and try to visualize it: 
+
+
+* We have a base class named "Greeting" and in this base class we have defined a funtion publicaly which is named as "greet()" and it takes no parameters. Now a new class named as "Hello" is derived from "Greeting" class. 
+
+* Now the "Hello" class has inherited the greet() function from the "Greeting" class, but if we define a function named as greet() inside the derived class explicitly then this greet() function which is defined inside the "Hello" class will override the greet() function which was inherited by "Hello" class from the "Greeting" class. 
+
+* And whenever we will make an object of "Hello" class and call the "greet()" function, then the definition which is given in the greet() function of "Hello" class will be executed always and the definition of greet() function which was inherited by the "Hello" class from the "Greeting" class will never be executed, because it will be always be overriden in this particular scenario. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example Code for Function Overloading in C++:  
+
+
+// Code for situation when function overriding happens 
+
+#include<iostream>
+using namespace std;
+
+
+class Greeting{
+    public:
+        // definition of greet() function in base class "Greeting" 
+        // this is the "overridden" function 
+        void greet(){
+            cout << "Greetings to you!!" << endl;
+        }
+};
+
+
+class Hello : public Greeting{
+    public:
+        // Definition of greet() function in derived class "Hello"
+        // This is the function which is "overriding" 
+        void greet(){
+            cout << "Hello!!" << endl;
+        }
+
+        // This explicitly defined definition of greet() function in "Derived Class" will override the definition of greet() function which it has inherited from the "Base Class". 
+
+        // This function overriding only happens when the function which is present in the derived and base class have same name and signature (signature means parameters and their data types) 
+};
+
+
+int main(){
+
+    Hello h;
+    h.greet();
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+// Code of situation when function overriding doesn't happen 
+
+#include<iostream>
+using namespace std;
+
+
+class Greeting{
+    public:
+        // definition of greet() function in base class "Greeting" 
+        void greet(){
+            cout << "Greetings to you!!" << endl;
+        }
+};
+
+
+class Hello : public Greeting{
+    public:
+        // We have not defined the greet() function explicitly here in the derived class 
+        // So, no overriding will happen and the definition of greet() function which the "Derived Class" has inherited from the "Base Class" will be executed whenever we make an object of "Derived Class" and call the greet() function. 
+};
+
+
+int main(){
+
+    Hello h;
+    h.greet();
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+// Code for situation which will lead to "function overloading" and not "function overriding"   
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+class Greeting{
+    public:
+        // definition of greet() function in base class "Greeting" 
+        void greet(){
+            cout << "Greetings to you!!" << endl;
+        }
+};
+
+
+class Hello : public Greeting{
+    public:
+        // definition of greet() function in base class "Greetings" 
+        void greet(string a){
+            cout << "Greetings to you " << a << "!!" << endl;
+        }  
+
+        // this definiton of greet(string) function in derived class will not override the definition of greet() function which was inherited from the base class, but rather this definiton here will lead to function overloading 
+
+        // Because this is a parameterized greet(string) function which is defined here inside the "Derived Class"
+
+        // And the greet() function which the "Derived Class" has inherited from the "Base Class" was non-paramerterized. 
+
+        // So, here the name of the functions is same in both derived and base class but the signatures (signature means parameters and their data types) are different that's why it will lead to "Function Overloading" and not "Function Overriding". 
+
+        // We have studied "Function Overloading" before but if we have to do a quick recap of it's defintion then "Function Overloading" means when we overload a name of function with different different jobs, by making functions of same name but which have different signatures. 
+};
+
+
+int main(){
+
+    Greeting g;
+    g.greet();
+
+    cout << endl;
+
+    Hello h;
+    h.greet("Aryan");
+
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+
+

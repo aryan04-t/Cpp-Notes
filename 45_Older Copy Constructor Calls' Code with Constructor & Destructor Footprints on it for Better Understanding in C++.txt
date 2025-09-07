@@ -1,0 +1,107 @@
+#include<iostream>
+using namespace std;
+
+
+class Numbers{
+
+    private:
+        int a;
+
+    public:
+
+        Numbers(){
+            a = 0;
+            cout << "Oyee Default!!!" << endl;
+        }     
+        Numbers(int z){
+            a = z;
+            cout << "Oyee Single Parameterized!!!" << endl;
+        }
+        Numbers(Numbers &u){
+            a = u.a;
+            cout << "Oyee Copy!!!" << endl;
+        }
+        ~Numbers(){
+            cout << "Oyee Destructor!!!" << endl;
+        } 
+
+        void Show();
+};
+
+
+void Numbers::Show(){
+    cout<<"* The Number is: "<<a<<endl;
+}
+
+
+int main(){
+
+    Numbers w, e(10), r(50);
+
+    // Copy constructor can be called when we want to create an object that should exactly resemble an existing object
+
+    w.Show();
+    e.Show();
+    r.Show();
+
+    cout<<endl;
+
+
+    // @ We can create "Copy of an Object" with copy constructor and without copy constructor also, we will see both the methods below: 
+
+    // Creating a object v1 which should exactly resemble object r, here we're invoking "copy constructor" explicitly to make the copy of object 
+    Numbers v1(r);               // Copy constructor invoked explicitly 
+    v1.Show();
+    cout<<endl;
+
+
+
+    // When we use assignment operator to make copy of an object using already existing object and we do it without invoking copy constructor neither implicitly and nor explicitly 
+    Numbers v2;                  // Here v2 is created using default constructor 
+    v2 = r;                      // Here copy constructor is not invoked explicitly because as you can see, there is no call witten manually here for invoking copy constructor, and here in this situation it is neither invoked implicitly by the compiler 
+
+    // ---> So, v2 object was already created using default constructor & then due to assignment operator the values of R.H.S object are assigned to the L.H.S object and L.H.S object is now a copy of R.H.S object 
+    // ---> but this copy of object is made without using "Copy Constructor". 
+
+    v2.Show();
+    cout<<endl; 
+
+
+
+    // When we use assignment operator to make copy of an object using already existing object by invoking copy constructor explicitly 
+    Numbers v3;                 // Here v3 is created using default constructor 
+    v3 = Numbers(e);            // Then here copy constructor will be invoked, because we have written an invoking statement here explicitly for it 
+    // After the copy constructor was invoked, the copy constructor created a temporary object which was copy of object "e", then this temporary object's values were assigned to already exisiting object v3 and then this temporary object was destroyed by the "destructor" when it's work was done, and this temporary object's work was just to assign values to v3 object, nothing else. 
+
+    /*
+        # I have talked about "destructors" in above statement, it's the next topic that we're going to study, if you don't understand this above example, there is no problem, after studying destructors, we will revisit this example, and you will understand this example even better 
+
+        # And try coding these examples on your own to see the flow of object creation and destruction in these different different ways of calling the "copy constructor" 
+
+        # And use cout statements in constructors and destructors to understand the flow of object creation and destruction in these calls in a better way. 
+    */
+
+    v3.Show(); 
+    cout<<endl; 
+    
+
+
+    // But When we are creating a new object and at that time if we use assignment operator to assign values of R.H.S object to L.H.S object  
+    Numbers v4 = r;              // Then here copy constructor is invoked implicitly by the compiler to make copy of the object, because v4 object was not intialized until now using default constructor. 
+
+    // ---> So, if we want to initialize an object and we have used assignment operator in the same line because we want to make it a copy of another object at same time when it's getting initialized. 
+    // then as we all know that the C++ compiler is really smart. 
+    // So, instead of creating an object using default constructor and then using assignment operator to assign all the values of R.H.S object to L.H.S object 
+    // C++ compiler just reduces it's work and says, so the object is not yet initialized using default constructor and due to assignment operator we know that we have to make it a copy of this another object, so let's pass this another object to copy constructor and use the "copy constructor" directly to initialize this object named v4, like this we can do both the work of "intitalizing the object" and "creating it as a copy of another object" together in one go.  
+
+    v4.Show();
+    cout<<endl;
+
+
+
+    return 0;
+}
+
+
+
+

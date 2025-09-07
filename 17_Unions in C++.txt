@@ -1,0 +1,51 @@
+# Unions: 
+
+
+* Unions are just like structure but they provide better memory management 
+
+* In Union whatever variables you will declare, the variable which has highest size, that amount of memory will be allocated to union, and here this memory is shared by all the variables of union & that's why you can only use one varibale out of union at once 
+
+* If you use one varibale and then the other and now you try to print the value of 1st varibale that you used of union then you will get garbage value, because as the memory is shared between all the variables of union, so, when the new variable was used out of union the memory from the older one was taken back and it was allotted to new variable of union which is being used currently 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Example Code for Better Understanding Unions: 
+
+
+#include<iostream>
+using namespace std;
+
+union money
+{
+    int rice;            //4 bytes
+    char car;            //1 bytes
+    float pounds;        //4 bytes 
+};
+
+
+// Now here incase of union 4 bytes of memory is allocated to it, but if we did this same thing with struct then it would have taken 9 bytes of memory easily
+
+// and like this we just understood that union is same as struct but just the thing is that it provides better memory management than struct 
+
+
+
+int main(){
+
+    union money m1; 
+    m1.rice = 34; 
+    cout<<m1.rice<<endl; 
+
+    m1.car = 'c'; 
+    cout<<m1.car<<endl; 
+    cout<<m1.rice<<endl;    // This will give garbage value now because memory has been allocated to "car" and it has been taken away from "rice" so now 34 value is not stored in it, it has been freed 
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

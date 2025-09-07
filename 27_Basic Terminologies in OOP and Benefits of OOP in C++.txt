@@ -1,0 +1,53 @@
+# Basic Terminologies in OOP: 
+
+
+* Classes - Basic template for creating objects. 
+
+* Objects - Basic run time entities. 
+
+* Data Abstraction - It means displaying only essential information to the user and hiding the details which are not relevant to user. 
+
+* Encapsulation - Wrapping data and functions into single unit for keeping it secure. 
+
+* Inheritance - Properties of one class can be inherited into others. Inheritance is a really good example of code reusability, it helps a lot in optimizing your code. Inheritance let's us inherit attributes and methods from another class. 
+
+* Polymorphism - Simple meaning of Polymorphism is "Ability of something to take more than one forms", it means that the same entity (function or object) behaves differently in different scenarios. 
+---> Example: The “ +” operator in c++ can perform two specific functions at two different scenarios i.e when the “+” operator is used in numbers, it performs addition. And the same “+” operator is used in the string, it performs concatenation. 
+
+* Dynamic Binding - A.K.A. Late Binding, it takes place at runtime, and it means that the code which will execute is not known until the program runs. 
+
+* Message Passing - It is the method of communication between two or more objects. 
+
+* Dot Operator - A.K.A. Direct member access operator - This C++ dot (.) operator is used for direct member selection via the name of variables of type class, struct, and union. 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# 4 pillars of OOPs are: 
+
+* Encapsulation 
+* Inheritance 
+* Polymorphism 
+* Abstraction 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Benefits of OOP: 
+
+
+* Better code reusability using "Objects" and "Inheritence".
+
+* Principle of data hiding helps you build secure systems. 
+
+* Multiple objects can co-exist without any interference. 
+
+* Using OOP it becomes really easy to make the software a lot less complex. 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

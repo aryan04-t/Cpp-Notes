@@ -1,0 +1,66 @@
+# Protected Access Modifiers in C++: 
+
+
+* Access Modifiers are a.k.a Access Specifiers, both mean the same thing. 
+
+* We all know that the private members of a class cannot be inherited and neither they can be accessed from outside the class using their class's object, they can only be accessed by their class's members. 
+
+* Protected access modifiers are just like the private access modifiers.
+
+* Protected members of a class can also not be accessed from outside the class using their class's object, and they can also be accessed by their class's members only.
+
+* But the only difference between "Private" and "Protected" memebers is that the members who are defined under "protected" access modifiers in the parent class, they can be inherited in the child class. 
+
+* And we know that the "private" members of a class can never be inherited. 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# So, now we know that a class can have 3 type of members: Public, Private and Protected. 
+
+# And a class "Base Class" can be inherited by a "Derived Class" via 3 types of visibility modes: Public, Private and Protected. 
+
+# So, let's make a table to understand the behavior of members of "Base Class" who are defined using these 3 access modifiers: "public", "private" and "protected" and what happens when they are inherited using these 3 visibility modes: "public", "private" and "protected": 
+
+
+Visibility Mode --->		Public Derivation      	Private Derivation    	Protected Derivation      
+
+Private Members           	Not Inherited           Not Inherited           Not Inherited              
+Protected Members           	Protected               Private                 Protected                  
+Public Members           	Public			Private                 Protected                  
+
+
+
+@ Explanation of Above Table: 
+
+---> Private members of base class can never be inherited in derived class, it doesn't matter which visibility mode you use. 
+
+---> If you use "public" visibility mode while inheriting the base class, then the members of base class will be inherited in derived class as they were, if they were "public" in base class then they will be "public" in derived class also and if they were "protected" in base class then they will be "protected" only in the derived class also. 
+
+---> If you use "private" visibility mode while inheriting the base class, then both "public" and "protected" members of base class will be inherited in the derived class as "private" members. 
+
+---> And If you use "protected" visibility mode while inheriting the base class, then "protected" members of base class will stay as "protected" only in the derived class also and "public" members of base class will become "protected" members of derived class. 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+@ Tips for Studing: 
+
+(i) This can be a little tricky concept for beginners to understand but I tried my level best to make it easier for you guys to understand it, I tried to explain it in the best possible way. 
+(ii) If you have still not understood this concept, then there is no problem. Give yourself a day and refer last 2 notes of Inheritance again with a fresh mind and then try to understand this notepad file again. 
+(iii) Code side by side while studying. Sit in a silent room so you can concentrate, take break after studying 2-3 hours. Study efficiently and understand the meanings and logics behind concepts and practice them a lot.
+(iv) Start making projects and studying DSA as you finish C++ and you can start making projects side by side also while you're studing C++, it's fine if you can manage but don't leave studying the language in half. 
+(v) Projects will really help you in getting grip on concepts, don't gulp the concepts, visualize them. Try to understand them with real life examples or make your own mnemonics, this might help, because making mnemonics helps me a lot in learning the keywords when I have understood the logic. 
+
+@ ALL THE BEST !!!
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+

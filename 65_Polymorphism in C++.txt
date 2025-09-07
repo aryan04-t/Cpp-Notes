@@ -1,0 +1,88 @@
+# Polymorphism in C++: 
+
+
+* “Poly” means many and “morphism” means form. 
+
+* So, polymorphism means that the same entity (function or object) behaves differently in different scenarios. 
+
+* Anything that plays more than one role is an good example of Polymorphism. 
+
+@ Example: A toothpic can be used to remove something stuck in your teeth, a toothpic can also used to pick up the pieces of chicken or paneer from the plate and to eat when your eating food, a toothpick can also be used by children at birthday parties to burst balloons, etc. 
+---> So, here the toothpick is only one thing but it can be used in different ways in different different scenarios, "The toothpick can take multiple forms". So, we can say that the toothpick has the quality of polymorphism and it is a good example of polymorphism. 
+
+
+* Now, we have seen the general definition of "Polymorphism" but how does "Polymorphism" works in C++, let's see: 
+- We've already seen example of polymorphism in C++ when we studied "Function Overloading", in that concept we studied that how a funciton with same name was overloaded with multiple jobs. 
+- Operator Overloading is also an example of polymorphism, "+" operator performs addition when numbers are given and it performs concatenation when strings are given to it as input, this is possible because "+" operator is overloaded. 
+- "Virtual Functions" are also example of polymorphism but we've not studied them until now, we will study this concept ahead sooner. 
+
+
+* So, let's deep dive and study "Polymorphism" in detail. 
+
+
+* There are two types of polymorphism: 
+    1. Compile Time Polymorphism 
+    2. Runtime Polymorphism 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+1. Compile Time Polymorphism: 
+
+
+* Compile time polymorphism means "a function is called at the time of program compilation". 
+
+* Compile time polymorphism is also known as "Early Binding" or "Static Binding". 
+
+* Compile time polymorphism can be achieved by 2 ways: 
+    1.1 Function Overloading 
+    1.2 Operator Overloading 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+2. Runtime Polymorphism: 
+
+
+* In a Runtime polymorphism, "functions are called at the time of program's execution". 
+
+* Hence, it is known as "Late Binding" or "Dynamic Binding". 
+
+* Runtime polymorphism can be achieved by using: 
+    2.1 Function Overriding 
+    2.2 Virtual Functions 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+@ We've studied, "Function Overloading" and "Function Overriding" before. so, we will quickly revise them first and then we will study "Operator Overloading" and then after that we will study "Virtual Functions". 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+1. Example Code for "Compile Time Polymorphism": 
+
+1.1 Example Code for "Function Overloading": 
+
+
+
+
+
+
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# References Cited: 
+
+
+https://www.mygreatlearning.com/blog/polymorphism-in-cpp/#:~:text=Polymorphism%20in%20C%2B%2B%20means%2C%20the,in%20numbers%2C%20it%20performs%20addition. 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+

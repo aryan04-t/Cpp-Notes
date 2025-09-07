@@ -1,0 +1,38 @@
+# Basic Code of Taking Input from User for Two Numbers and Returning the Sum of both the Numbers as Output:
+
+
+# Code: 
+
+
+#include<iostream>
+using namespace std;
+
+// Here we have made a function named "add" which returns an "Integer" datatype value 
+
+int add(int x, int y){
+    return (x+y);
+}
+
+int main(){
+
+    int a, b;
+
+    cout<<"* Enter the value of 1st number: ";
+    cin>>a;
+
+    cout<<"* Enter the value of 2nd number: ";
+    cin>>b;
+
+    int sum = add(a,b);
+
+    cout<<"# Sum of both the numbers is: "<<sum;
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+

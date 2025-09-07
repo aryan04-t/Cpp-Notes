@@ -1,0 +1,82 @@
+# Pointers to Derived Classes in C++: 
+
+
+* In C++ base class's pointer can point the object of derived class, it's legal. 
+
+* But the pointer is of base class. So, the pointer can only access the functions of base class, it doesn't matter that it's pointing the object of derived class, it can only access members of base class because it is a pointer of base class, if it tries to access the members of derived class, an error will occur. 
+
+
+
+
+
+
+#include<iostream>
+using namespace std;
+
+
+class BaseClass{
+    public:
+        int var_base;
+        void display(){
+            cout<<"* Dispalying Base class variable var_base "<<var_base<<endl;
+        } 
+};
+
+
+class DerivedClass : public BaseClass{
+    public:
+        int var_derived;
+        void display(){
+            cout<<"@ Dispalying Base class variable var_base "<<var_base<<endl;
+            cout<<"@ Dispalying Derived class variable var_derived "<<var_derived<<endl;
+        }
+};
+
+
+int main(){
+
+    // Making pointer of both the classes 
+    BaseClass * base_class_pointer; 
+    DerivedClass * derived_class_pointer; 
+
+    // Making object of both the classes 
+    BaseClass obj_base; 
+    DerivedClass obj_derived;
+
+
+    // We know that we can use base class's pointer to store base class's object's address in it and then we can use arrow operator with that pointer to access members of base class 
+
+    // But "Pointers to Derived Classes" have a special case 
+    // You can make a base class's pointer to point towards dervied class's object and this will cause no error, it is legal, but this pointer cannot be used to access members of derived class, it will work same as normal base class pointer which is pointing towards base class's object 
+    // But here in this scenario "late binding" takes place and in the normal scenario where base class's pointer is pointing towards base class's object, in that case "static binding" takes place. 
+
+
+    // This is called late binding 
+    base_class_pointer = &obj_derived;                 // Making base class pointer to point derived class's object 
+
+    base_class_pointer->var_base = 34;                 // We can use this pointer to access base class's members 
+
+    // base_class_pointer->var_derived = 134;           // This line will throw an error, because you cannot access members of derived class using pointer of base class, even if the pointer is pointing towards the derived class's object 
+
+    base_class_pointer->display();                     // This line will invoke Base Class's display() function 
+
+    cout << endl;
+
+    // Here we're making the pointer of derived class to point towards object of derived class 
+
+    derived_class_pointer = &obj_derived; 
+
+    derived_class_pointer->var_base = 9448;             // Obviously derived class's pointer can access the members of base class because derived class has inherited them from base class 
+
+    derived_class_pointer->var_derived = 98;
+    derived_class_pointer->display();                   // The display() function of base class is overriden by the new definition which is defined in the derived class. So, this will class the display() 
+
+    cout << endl;
+
+    base_class_pointer->display();
+
+
+
+
+    return 0;
+}

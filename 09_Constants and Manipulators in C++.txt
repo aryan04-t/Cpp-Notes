@@ -1,0 +1,58 @@
+# Constants: 
+
+
+* Value of variables can be changed, but sometimes we need the value of a variable not to be changed and it should stay constant 
+
+* Then for this scenario you can define constant, like in your code if you want value of 'pi' variable as 3.14 and you don't want that this value should be changed in future even by mistake then you can declare 'pi' variable as constant 
+
+* Syntax of declaring constants in C++:
+---> const float pi = 3.14;
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+# Manipulators: 
+
+
+* Manipulators are those operators which are used to format the data which is going to be displayed 
+
+* Most commonly used manipulators are: 
+---> endl 
+---> setw 
+
+// "setw()" is a manipulator present in "iomanip" header file 
+// and setw() manipulator is used to set the width that a data will take when it will be displayed, this manipulator can be used to make your content right justified 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Code for setw(): 
+
+
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+int main(){
+
+    int a=3, b=78, c=1233;
+    
+    cout<<"The value of a without setw is: "<<a<<endl;
+    cout<<"The value of b without setw is: "<<b<<endl;
+    cout<<"The value of c without setw is: "<<c<<endl;
+
+    cout<<"The value of a is: "<<setw(4)<<a<<endl;
+    cout<<"The value of b is: "<<setw(4)<<b<<endl;
+    cout<<"The value of c is: "<<setw(4)<<c<<endl;
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

@@ -1,0 +1,45 @@
+# Static Variables: 
+
+
+* When a variable is declared as static, space for it gets allocated for the lifetime of the program. 
+
+* The variables declared as "static" are initialized "only once" as they are allocated space in separate static storage. 
+
+* So, even if a function is called multiple times, space for the static variable is allocated "only once" and the value of the variable in the previous call gets "carried" through the next function call. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Code for Static Variables: 
+
+
+#include<iostream>
+using namespace std;
+
+int calculation(int r, int z){
+    static int c = 0;  // This statement will be executed only once 
+    c= c+1;            // Next time when this function will run, the last value of c will be retained, beacuse it is stored in the separate static storage 
+
+    // Once a function is completed, it forgets all the variables, memory allocated to all the local variables is freed, but this does not happen with static variables, memory allocated to static varibales is freed after completion of whole program 
+
+    return (c + r + z);
+}
+int main(){
+
+    int u=2, i=3;
+
+    cout<<calculation(u,i)<<endl;
+    cout<<calculation(u,i)<<endl;
+    cout<<calculation(u,i)<<endl;
+    cout<<calculation(u,i)<<endl;
+    cout<<calculation(u,i)<<endl;
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

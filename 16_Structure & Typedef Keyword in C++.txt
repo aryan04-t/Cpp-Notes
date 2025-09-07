@@ -1,0 +1,92 @@
+# Structure: 
+
+
+* Structure (struct) is a user defined data type 
+
+* Whenever all the elements are of same data type then we can create an array to store all the data 
+
+* But if want to store data of different data types together then we can make "Structure" and we can store that data 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Example Code for Understanding Structure: 
+
+
+#include<iostream>
+using namespace std;
+
+struct employee{
+    int eId;
+    char favChar;
+    int salary;
+};
+
+int main(){
+
+    struct employee Aryan;
+
+    Aryan.eId = 80085;
+    Aryan.favChar = 'v';
+    Aryan.salary = 120000000;
+
+    cout<<"Aryan's Employee ID is: "<<Aryan.eId<<endl; 
+    cout<<"Aryan's Favourite Character is: "<<Aryan.favChar<<endl; 
+    cout<<"Aryan's Salary is: "<<Aryan.salary<<endl;
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+# Typedef Keyword of C++ with Structures: 
+
+
+* Now whenever you want to use this structure of employee and you want to use this your defined datatype to make a new employee, you have to type "struct employee Name_of_the_Employee" 
+
+* but instead of always typing "struct employee" you can use the "typedef" keyword and you can "Nickname" or you can say "Additional Name" for your defined data type and then you just have to use that "Nickname" to create new "Employee" using struct 
+
+* A typedef declaration does not reserve storage 
+
+* And structures in C++ are already typedefed, even if you don't use "typedef" keyword and give a new customized name to your structure, you can still make an variable of structure using structure's name, we have did this above in "Example code" where we declared variable of structure using structure's name.
+---> Ex: "struct employee Aryan;" 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Example Code for Using Typedef Keyword in Struct: 
+
+
+#include<iostream>
+using namespace std;
+
+typedef struct employee{
+    int eId;
+    char favChar;
+    int salary;
+} ep;
+
+int main(){
+
+    ep Aryan;
+
+    Aryan.eId = 80085;
+    Aryan.favChar = 'v';
+    Aryan.salary = 120000000;
+
+    cout<<"Aryan's Employee ID is: "<<Aryan.eId<<endl; 
+    cout<<"Aryan's Favourite Character is: "<<Aryan.favChar<<endl; 
+    cout<<"Aryan's Salary is: "<<Aryan.salary<<endl;
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

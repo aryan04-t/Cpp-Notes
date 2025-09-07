@@ -1,0 +1,681 @@
+# Templates in C++:
+
+--> "Class" is a template for "Object".
+--> Just like that, "Template" is a template for "Class". 
+
+
+@ Templates are also called "Parameterized Classes". 
+
+
+_ _ _ _ _ _ _ _ _ _ 
+
+
+
+# Why to use Templates: 
+
+--> With the help of "Templates" we can prevent the violation of DRY (Don't Repepeat Yourself) Principle of coding by making generic classes. 
+
+--> We can do "Generic Programming" using "Templates". 
+
+@ Generic Programming means coding something in general sense which can be used withh any datatype, you're not coding things strictly for any secific datatype. 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# Single Parameter Class Template:
+
+
+_ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+@ Syntax:
+
+
+template <class T>
+class Stack{
+    // Here replace all the datatypes which you want to generalize with 'T'
+    // Here 'T' is the template parameter 
+};
+
+
+_ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+@ Code Example: 
+
+
+
+#include<iostream>
+using namespace std;
+
+
+template <class T>
+class Example{
+
+    private:
+        T val; 
+
+    public:
+        
+        // This is called initialization list and it is a way of writing the constructor more compactly in a better way
+        // Initialization list can also be used to assign values to const data members of class, where as conventional constructor fails to do this 
+        Example() : val(0) {}
+        Example(T _data) : val(_data) {}
+
+        void display_value(){
+            cout << val << endl;
+        }
+};
+
+
+int main(){
+
+
+    Example<int> ex1(10);
+    ex1.display_value();
+
+
+    return 0;
+}
+
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+
+# 2 Parameter Class Template: 
+
+
+_ _ _ _ _ _ _ _ _ _ _ 
+
+
+@ Syntax: 
+
+
+template <class T1, class T2>
+class Stack{
+    // Here T1 will refer to 1st datatype which passed as an argument to this template 
+    // and T2 will be refered as the 2nd datatype which is passed as an argument to this template 
+}; 
+
+
+_ _ _ _ _ _ _ _ _ _ _ 
+
+
+@ Code Example: 
+
+
+#include<iostream>
+using namespace std;
+
+
+template <class T1, class T2>
+class Example{
+
+    private:
+        T1 val1;
+        T2 val2; 
+
+    public:
+        
+        Example(){}
+        Example(T1 _data1, T2 _data2) : val1(_data1), val2(_data2) {}
+
+        void display_value(){
+            cout << "Value 1 = " << val1 << endl;
+            cout << "Value 2 = " << val2 << endl;
+        }
+};
+
+
+int main(){
+
+
+    Example<int, char> ex1(10, 'c');
+    ex1.display_value();
+
+
+    return 0;
+}
+
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+
+# Multiple Parameter Class Template: 
+
+
+_ _ _ _ _ _ _ _ _ _ _ 
+
+
+@ Syntax: 
+
+
+template <class T1, class T2, class T3, ....>
+class Stack{
+    // Here T1 will refer to 1st datatype which passed as an argument to this template 
+    // and T2 will be refered as the 2nd datatype which is passed as an argument to this template 
+    // and T3 will be refered as the 3rd datatype which is passed as an argument to this template 
+    // and So, on
+}; 
+
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+
+# Default Parameters in Class Templates Syntax: 
+
+
+_ _ _ _ _ _ _ _ _ _ _ 
+
+
+@ Syntax:
+
+
+template <class T1=int, class T2=char>
+class Stack{
+
+    // Here T1 will refer to 1st datatype which passed as an argument to this template 
+    // and T2 will be refered as the 2nd datatype which is passed as an argument to this template 
+    // But if you use this template without passing any parameters like "Stack<>" then the default parameters of the class will be used and T1 will be treated as "int" and T2 will be treated as "char" in this example 
+	
+}; 
+
+
+ 
+_ _ _ _ _ _ _ _ _ _ _ 
+
+
+@ Code Example: 
+
+
+#include<iostream>
+using namespace std;
+
+
+template <class T1 = int, class T2 = char>
+class Example{
+
+    private:
+        T1 val1;
+        T2 val2; 
+
+    public:
+        
+        Example(){}
+        Example(T1 _data1, T2 _data2) : val1(_data1), val2(_data2) {}
+
+        void display_value(){
+            cout << "Value 1 = " << val1 << endl;
+            cout << "Value 2 = " << val2 << endl;
+        }
+};
+
+
+int main(){
+
+
+    Example ex1(10, 'c');
+    ex1.display_value();
+
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+@ NOTE: 
+
+
+template <class T1, class T2=char>
+class Stack{
+
+    // Always keep the default parameter on the right most side of any non-default parameters, if in your class template you're only giving default value to only few parameters out of the total 
+
+};
+
+
+_ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+@ Code Example: 
+
+
+
+#include<iostream>
+using namespace std;
+
+
+template <class T1, class T2 = char>
+class Example{
+
+    private:
+        T1 val1;
+        T2 val2; 
+
+    public:
+        
+        Example(){}
+        Example(T1 _data1, T2 _data2) : val1(_data1), val2(_data2) {}
+
+        void display_value(){
+            cout << "Value 1 = " << val1 << endl;
+            cout << "Value 2 = " << val2 << endl;
+        }
+};
+
+
+int main(){
+
+
+    cout << endl;
+    
+    Example<int> ex1(100, 'f');
+    ex1.display_value();
+    
+    cout << endl;
+
+
+    Example<int, char> ex2(200, 'u');
+    ex2.display_value();
+
+    cout << endl;
+
+
+    Example<int, string> ex3(300, "ck off");
+    ex3.display_value();
+
+    cout << endl;
+
+
+    return 0;
+}
+
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# How to Define "Member Function" of Template Class outside the Template Class using the Scope Resolution Operator after Declaring that function Inside the Template Class: 
+
+
+
+#include<iostream>
+using namespace std;
+
+
+template <class T>
+class Example{
+
+    private:
+        T val; 
+
+    public:
+        
+        Example() : val(0) {}
+        Example(T _data) : val(_data) {}
+        void display_value();
+};
+
+
+template<class T>
+void Example<T>::display_value(){
+    cout << val << endl;
+}
+
+
+int main(){
+
+
+    Example<string> ex1("Hi, I am Aryan Tomar");
+    ex1.display_value();
+
+
+    Example<string> ex2("My DOB is: 8th Jan. 2004");
+    ex2.display_value();
+
+
+    return 0;
+}
+
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# Function Templates: 
+
+
+--> If you have written a function, and you have to write its different different vairants just because you want the parameters to be of different datatypes, then instead of making new functions again and again where you type the same code and change the function name just a little bit, you can basically create a template of that function.
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+$ Example-1 (Average Function): 
+
+
+_ _ _ _ _ _ _ _ _ _ _ 
+
+
+@ Scenario Where Template of Function Can be Created: 
+
+
+// Code-1.1:
+
+
+#include<iostream>
+using namespace std;
+
+
+float funcAverage(int a, int b){
+    float avg = (a+b)/2.0;
+    return avg;
+}
+
+
+float funcAverage2(int a, float b){
+    float avg = (a+b)/2;
+    return avg;
+}
+
+
+int main(){
+    
+    int a = 10, b = 3;
+
+    float result = funcAverage(a, b);
+    printf("The result is: %.2f \n", result);                // You can also use printf() function of C in C++ 
+    
+    
+    int c = 2;
+    float d = 3.5;
+    
+    result = funcAverage2(c, d);
+    printf("The result is: %.2f \n", result);
+
+    
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+@ Creating Function Template for Functions Written in Above Code-1.1: 
+
+
+// The Syntax of Creating Function Templates is Same as creating Class Templates 
+
+// Code-1.2: 
+
+
+#include<iostream>
+using namespace std;
+
+
+template <class T1, class T2>
+float funcAverage(T1 a, T2 b){
+    float avg = (a+b)/2.0;
+    return avg;
+}
+
+
+int main(){
+    
+    int a = 10, b = 3;
+
+    float result = funcAverage<int, int>(a, b);
+    // float result = funcAverage(c, d);              // Generic Template Functions can be called like this also directly, but Template Classes cannot be called like this directly
+    printf("The result is: %.2f \n", result); 
+    
+    
+    int c = 2;
+    float d = 3.5;
+    
+    result = funcAverage<int, float>(c, d);
+    // result = funcAverage(a, b);                    // Generic Template Functions can be called like this also directly, but Template Classes cannot be called like this directly
+    printf("The result is: %.2f \n", result);
+
+    
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+$ Example-2 (Swapping Function): 
+
+
+_ _ _ _ _ _ _ _ _ _ _ 
+
+
+@ Scenario Where Template of Functions Can be Created: 
+
+
+// Code-2.1: 
+
+
+#include<iostream>
+using namespace std;
+
+
+void swap_int_values(int &a, int &b){
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+void swap_string_values(string &a, string &b){
+    string temp = a;
+    a = b;
+    b = temp;
+}
+
+void swap_float_values(float &a, float &b){
+    float temp = a;
+    a = b;
+    b = temp;
+}
+
+
+int main(){
+
+
+    cout << endl;
+
+
+    int a = 10, b = 20; 
+    cout << "Before Swapping: a = " << a << " and b = " << b << endl; 
+    swap_int_values(a, b); 
+    cout << "After Swapping: a = " << a << " and b = " << b << endl << endl; 
+
+
+    string c = "Aryan", d = "Tomar";
+    cout << "Before Swapping: c = " << c << " and d = " << d << endl; 
+    swap_string_values(c, d); 
+    cout << "After Swapping: c = " << c << " and d = " << d << endl << endl; 
+
+
+    float e = 69, f = 96;
+    cout << "Before Swapping: e = " << e << " and f = " << f << endl; 
+    swap_float_values(e, f); 
+    cout << "After Swapping: e = " << e << " and f = " << f << endl << endl; 
+
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+@ Creating Function Template for Function Written in Above Code-2.1: 
+
+
+// Code-2.2: 
+
+
+#include<iostream>
+using namespace std;
+
+
+template <class T>
+void swap_values(T &a, T &b){
+    T temp = a;
+    a = b;
+    b = temp;
+}
+
+
+int main(){
+
+
+    cout << endl;
+
+
+    int a = 10, b = 20; 
+    cout << "Before Swapping: a = " << a << " and b = " << b << endl; 
+    swap_values<int>(a, b); 
+    // swap_values(a,b);                // Generic Template Functions can be called like this also directly 
+    cout << "After Swapping: a = " << a << " and b = " << b << endl << endl; 
+
+
+    string c = "Aryan", d = "Tomar";
+    cout << "Before Swapping: c = " << c << " and d = " << d << endl; 
+    swap_values<string>(c, d);
+    // swap_values(c,d);                // Generic Template Functions can be called like this also
+    cout << "After Swapping: c = " << c << " and d = " << d << endl << endl; 
+
+
+    float e = 69, f = 96;
+    cout << "Before Swapping: e = " << e << " and f = " << f << endl; 
+    swap_values<float>(e, f); 
+    // swap_values(e,f);                // Generic Template Functions can be called like this also
+    cout << "After Swapping: e = " << e << " and f = " << f << endl << endl; 
+
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# Overloading A Function by Creating its Template Function: 
+
+
+_ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+@ Example Code:
+
+
+
+#include <iostream>
+using namespace std;
+
+
+void func(int a){
+    cout << "I am first func(), value passed to me is: " << a << endl;
+}
+
+
+// Function named func() is already defined above, but we can create its template and we can overload it, this will give no error 
+template<class T>
+void func(T a){
+    cout << "I am templatised func(), value passed to me is: " << a << endl;
+}
+
+
+int main(){
+
+
+    cout << endl;
+
+    func(100);           // Exact match takes the highest priority, that's why first function func() will be called here 
+
+    func('A');           // Here there is no exact match for this function, that's why template function func() will be called here 
+
+    // A function can never be overloaded by just changing the datatype of parameter and keeping the number of parameters same, this is the only exceptional scenario where while creating a function template this type of overloading can happen, where the number of parameters of the function and the template function are same 
+
+    
+    
+    cout << endl;
+
+
+    return 0;
+
+}
+
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+
+# References Cited: 
+
+
+
+* CodeWithHarry (C++ Templates: Must for Competitive Programming | C++ Tutorials for Beginners #63): 
+https://www.youtube.com/watch?v=kKJeekDKU30&list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL&index=63 
+
+
+* CodeWithHarry (Writing our First C++ Template in VS Code | C++ Tutorials for Beginners #64): 
+https://www.youtube.com/watch?v=SuiGXMqGKak&list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL&index=64 
+
+
+* CodeWithHarry (C++ Templates: Templates with Multiple Parameters | C++ Tutorials for Beginners #65):
+https://www.youtube.com/watch?v=8SQL9-cQmsw&list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL&index=65
+
+
+* CodeWithHarry (C++ Templates: Class Templates with Default Parameters | C++ Tutorials for Beginners #66):
+https://www.youtube.com/watch?v=IdY8t0n8VBs&list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL&index=66 
+
+
+* CodeWithHarry (C++ Function Templates & Function Templates with Parameters | C++ Tutorials for Beginners #67):
+https://www.youtube.com/watch?v=YTS0ShpFsrM&list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL&index=67
+
+
+* CodeWithHarry (Member Function Templates & Overloading Template Functions in C++ | C++ Tutorials for Beginners #68):
+https://www.youtube.com/watch?v=Y_RMNcXAM1U&list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL&index=68 
+
+
+
+* ChatGPT: 
+https://chat.openai.com/ 
+
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+

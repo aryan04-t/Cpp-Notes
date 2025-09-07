@@ -1,0 +1,111 @@
+# Arrays: 
+
+
+* An array is a collection of items which are of the similar type stored in contiguous memory locations. 
+
+* Sometimes, a simple variable is not enough to hold all the data. 
+
+* For example, let’s say we want to store the marks of 2500 students; initializing 2500 different variable for this task is not feasible. 
+
+* To solve this problem, we can define an array with size 2500 that can hold the marks of all students. 
+---> Syntax for Intializing Array: data_type name_of_array[size_of_array]; 
+---> For Example: int marks[2500]; 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Example for Declaring & Intializing Array: 
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    // 1st Method  
+    // Example of Intializing Array Using Curly Braces {} 
+
+    int marks[4] = {23, 45, 56, 89};      // While declaring and intializing array like this in C++ giving size is optional, the compiler is smart enough to figure out that there are 4 values in curly braces {} 
+
+    // int marks[] = {23, 45, 56, 89};   // ---> So, it can be done like this also in this scenario 
+    
+    cout<<marks[0]<<endl;
+    cout<<marks[1]<<endl;
+    cout<<marks[2]<<endl;
+    cout<<marks[3]<<endl;
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Example of Giving Values to Array Index by Index:
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    // 2nd Method 
+    // Giving Values to Array Index by Index 
+
+    int marks[4];
+    
+    marks[0] = 100;
+    marks[1] = 200;
+    marks[2] = 300;
+    marks[3] = 400; 
+
+    cout<<marks[0]<<endl;
+    cout<<marks[1]<<endl;
+    cout<<marks[2]<<endl;
+    cout<<marks[3]<<endl;
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+* Well 1st method is still better than 2nd method as it requires less line of code to do the same thing, but we can also use for loop to enter data into array, by taking input from user & also you can traverse the array using for loop 
+
+* You can also change the value of an array's index as many times you need 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Code for Intializing Array Using For Loop & by Taking Input from User & also Traversing the Array Using For Loop: 
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    // 3rd Method 
+    // Array Example for Intializing Array Using For Loop & by Taking Input from User & also Traversing the Array Using For Loop 
+
+    int marks[4];
+    
+    for(int i=0; i<4; i++){
+        cout<<"* Enter the data for "<<i<<" index: ";
+        cin>>marks[i];
+    }
+
+    cout<<endl;
+
+    for(int i=0; i<4; i++){
+        cout<<"@ Data on "<<i<<" index is: "<<marks[i]<<endl;
+    }
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

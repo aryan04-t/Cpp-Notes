@@ -1,0 +1,94 @@
+# Inline Functions: 
+
+
+* Whenever we call a normal function, a function which is not inline, it behaves like this: 
+(i) When a function call is encountered during the compilation of a program. 
+(ii) It's memory address is stored by the compiler. 
+(iii) Then the function arguments are copied on the stack and after the execution of the code. 
+(iii) The control is transferred back to the calling instruction. 
+
+* But this above process can sometimes cause overhead in function calls, especially if the function is small and its execution time is less than the switching time & this overhead can make your code slower & less efficient over time. 
+
+* This issue of overhead is resolved by using the "Inline Functions". 
+* These inline functions overcome the overhead and also make the program faster by reducing the execution time of the program. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Code for a Normal Function & it's Flow: 
+
+
+#include<iostream> 
+using namespace std; 
+
+int product(int n, int m){
+    return (n*m);
+}
+
+int main(){
+
+    // This code has normal function, which is not inline so it will have the same flow which I have explained above for normal functions 
+
+    // Now, we can see that product() function is really really small and obviously the switching time for this product() function will be more than it's execution time and if we use this function thousands and millions of time the overhead which will be generated overtime will make our code slower and less efficient 
+
+    // We cannot see this overhead on our console at high level with our naked eyes but for the memory and for the CPU it makes lots of difference and scpecially when we are building applications in future which will be used by millions and billions of users this overhead can cost problems for your company when user's user experience will be destroyed because the code working really slow 
+
+    int k=100, o=35;
+    cout<<product(k,o);
+
+    return 0;
+} 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Code for a Inline Function & it's Flow: 
+
+
+#include<iostream>
+using namespace std;
+
+
+// This is the syntax for decclaring a "Inline Function", "inline" keyword is used before any function to make it inline 
+
+inline int product(int n, int m){
+    return (n*m);
+}
+
+int main(){
+
+    // When we make any function "Inline" we send a request to compiler to make it "Inline" and compiler uses it's inteligence and checks whether you as a coder has enough knowledge or not, that whether you are making a right function "Inline" or not, and if the request is valid then the compiler makes the function inline otherwise it rejects the request and the function stays normal
+
+    // This type of optimisation is done at compiler's end to make smart decisions because only those functions are recommeded to be made "Inline" which have less execution time than the switchcing time, simply means the functions which have less line of code are recommened to be made "Inline" to make the code more efficient by avoiding generation of overhead
+
+    // You cannot keep making any function that you want as "Inline" because if a function is big, which has a lot of "Line of Code (LOC)" then making it "Inline" will not make the code faster but it will either make it even slower 
+
+    int k=100, o=35;
+    cout<<product(k,o);
+
+    // Now how does the flow of Inline Function Works, when you make any function "Inline" than the "calling statement" is just replaced by the "line of code which is present inside the function" at the time of compilation, and there is no switching inlvolved in the case "Inline Functions" and like this the overhead is avoided when we make any small function as "Inline" 
+
+    // So, in this code the above "calling statement" will behave like this at the time of compilation because the function is "Inline" 
+    // cout<<(n*m);
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+@ Tip: 
+
+(i) Never request compiler to make any "Big Function" inline if the compiler even by mistake accepted the request then it will just make the code even slower instead of making it faster. Always make "Small Functions" as inline which have "Less line of code" and which follow the "Sequence Structure Flowise", this will make the code much more "Optimal" and like this the "Problem of Overhead" can be dealt for "Small Functions" 
+
+(ii) Never make functions inline: 
+	(a) When Recursion is being used inside the function 
+	(b) When there are static variables inside the function 
+	(c) When loops and switch statements are being inside the function
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

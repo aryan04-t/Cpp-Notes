@@ -1,0 +1,170 @@
+# This Keyword (Pointer) in C++: 
+
+
+* "this" is a keyword, which is a pointer that points towards the object which invokes the member function. 
+
+* There are many usages of "this" keyword but 2 main usages are: 
+    (i) It can be used to refer current class instance variable. 
+   (ii) It can be used to return the invoking object or to pass the invoking object as a parameter to another function. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example Code for "this" Keyword: 
+
+ 
+// This code will not run propery and it will give garbage value 
+
+
+#include<iostream>
+using namespace std;
+
+
+class A{
+    private: 
+        int a;
+
+    public:
+        void setData(int a){
+            a = a;                    // But the private variable "a" is not getting it's value set to 10 
+            // here L.H.S and R.H.S both refer to "a" variable which is the "formal argument" in the function 
+            // Because when 2 variables have same name, the local variable has higher precedence 
+        }
+        void printData(){
+            cout << "* Value of \"a\" is: " << a << endl;
+        }
+};
+
+
+int main(){
+
+    A object;
+    object.setData(10);               // We are passing 10 as a value to the setdata() function 
+    object.printData();
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+// In this code we have fixed the above code's issue 
+
+/* 
+Above code's issue can be fixed by two ways: 
+1st) By not keeping similar name for both "data member of class" and "formal argument" 
+2nd) By using "this" keyword  
+*/
+
+
+#include<iostream>
+using namespace std;
+
+
+class A{
+    private: 
+        int a;                               // "Data members of class" which are not static variables are also know as "Instance Variables", because these variables with respect to each object / instance have the capability to have different values. 
+
+        // They're not like "Static Variables", which have same value with respect to each object, cuz they're "Class Variables", they're stored in static storage which can be commonly accessed by all the objects. 
+
+    public:
+        void setData(int a1){
+            a = a1;                          // Obviously, now both the variables, the "Instance Variable" and the "Formal Argument" both of them here have different names. So, compiler is smart enough that it knows when names are unique, then when we write "a" we refer to the "Instance Variable a" because there is no other variable named "a" is present in this scope and it knows that when we type "a1" we're reffering to the "formal argument a1" because there is no other variable named "a1" is present in this scope 
+        }
+        void printData(){
+            cout << "* Value of \"a\" is: " << a << endl;
+        }
+};
+
+
+int main(){
+
+    A object;
+    object.setData(10);               // We are passing 10 as a value to the setdata() function 
+    object.printData();
+
+    // Code is running smoothly and as per requirement now. 
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+// In this code we have fixed 1st code's issue using 2nd way, by using "this" keyword:  
+
+
+// In above code we have fixed the issue of 1st code by using 1st method, where we have kept names of both "Instance Variable" and "Formal Argument" which are not similar 
+
+// But what if we want to keep the name of both the variables exactly similar, in that situation the code's issue can be solved by using 3nd method, it means by using "this" keyword  
+
+
+#include<iostream>
+using namespace std;
+
+
+class A{
+    private: 
+        int a;                               
+
+    public:
+        void setData(int a){
+            this->a = a;                            // We've studied that "this" is a pointer which points at the current object which is invoking the member function 
+            // So, when we write "this->a", we refer to the "Instance Variable a" and not the "Formal Argument a" and like this even when the both of them, the "Instance Variable" and the "Formal Argument" still have the same name, but our code runs smoothly because we've specified things using "this" keyword and now the compiler knows that what we're really trying to code. 
+        }
+        void printData(){
+            cout << "* Value of \"a\" is: " << a << endl;
+        }
+};
+
+
+int main(){
+
+    A object;
+    object.setData(10);               // We are passing 10 as a value to the setdata() function 
+    object.printData();
+
+    // Here we fixed the code's issue using "this" keyword and it is running smoothly and as per requirement now. 
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+// This is the demonstration code where we will be seeing how else "this" keyword can be used 
+// Here we will be using "this" keyword to return the object which has invoked the member function.
+
+
+#include<iostream>
+using namespace std;
+
+
+class A{
+    private: 
+        int a; 
+
+    public: 
+        A & setData(int a){ 
+            this->a = a; 
+            return *this; 
+        }
+        void printData(){ 
+            cout << "* Value of \"a\" is: " << a << endl; 
+        } 
+};
+
+
+int main(){
+
+    A object;
+    object.setData(10).printData(); 
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+

@@ -1,0 +1,177 @@
+# Default and Parameterized Constructors in C++: 
+
+
+* We have studied that constructors are automatically invoked when we create objects, and this automatic invoking of constructors happens because they have same name as of their class. 
+
+* We have seen non-parameterized / default constructor before, but let's see parameterized constructor now. 
+
+* Parameterized constructor takes values as input and initializes the object. 
+
+* You can pass these values to the parameterized consturctor using two methods: 
+    (i) Implicit Call 
+   (ii) Explicit Call 
+
+* Whatever method you use, either "Implicit" or "Explicit" for passing the values to parameterized constructor, remember one thing, output will be the same, you can use whichever method you want to use. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example-1 Code for Parameterized Constructors (Simple Example): 
+
+
+#include<iostream>
+using namespace std;
+
+class Complex{
+
+    private:
+        int a;
+        int b;
+
+    public: 
+        Complex(int, int);           // Parameterized constructor declaration 
+        void printNumber();
+};
+
+
+Complex::Complex(int x, int y){
+    a = x;
+    b = y;
+}
+
+void Complex::printNumber(){
+    cout << "* The complex number is: " << a << "+" << b << "i" << endl; 
+}
+
+int main(){
+
+    // Implicit Call 
+    Complex num1(2,5);
+
+    // Explicit Call 
+    Complex num2 = Complex(8,0); 
+
+    /*
+    // This is also another way of "Explicit Call" don't get confuse: 
+    Complex num3;
+    num3 = Complex(8,0);
+    */
+
+    cout<<endl;
+    num1.printNumber();
+    num2.printNumber();
+    cout<<endl;
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example-2 Code for Parameterized Constructors (Complex Example): 
+
+
+// Code for calculating the distance between 2 points on a 2D cartesian plane 
+// Member Function Approach 
+
+#include<iostream>
+#include<cmath>           // sqrt() and pow() are the functions present in cmath header file. 
+using namespace std;
+
+class Point{
+    int x, y;
+    public:
+
+        Point(int a, int b){
+            x = a;
+            y = b;
+        }
+
+        Point(){ 
+
+            // As we've coded a parameterized constructor above, so now the class have a constructor and that's why now the compiler will not provide a "default constructor" to this class, so if you want a "default constructor" also to initialize any object, then you have to code it also explictly, otherwise if you don't code it explicitly in this scenario and you try to make a object using "default constructor", then you will get an error, because neither the compiler has provided it in this scenario and nor you have coded it explicitly and your trying to use a thing that doesn't exist 
+
+            // This current code now have two constructors one is "parameterized" and the other one is "non-parameterized" so just like "function overloading" this is called "constructor overloading" and we will study about it next 
+            
+        };
+
+        void displayPoint(){
+            cout << "* The point is (" << x << "," << y << ")" << endl;
+        }
+
+        double distanceBetweenTwoPoints(Point c, Point d);
+};
+
+
+double Point::distanceBetweenTwoPoints(Point c, Point d){
+    double dist = sqrt(pow((c.x-d.x),2.0) + pow((c.y-d.y),2.0));
+    return dist;
+}
+
+
+int main(){
+    Point p(1,1);
+    p.displayPoint();
+
+    Point q(4,6);
+    q.displayPoint();
+
+    Point r;
+    double distance = r.distanceBetweenTwoPoints(p,q);
+    cout << "# Distance between above two points is: " << distance << endl;
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+// Above same code but this time with...
+// Friend Function Approach 
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+class Point{
+    int x, y;
+    public:
+
+        friend double distanceBetweenTwoPoints(Point c, Point d);
+
+        Point(int a, int b){
+            x = a;
+            y = b;
+        }
+
+        void displayPoint(){
+            cout << "* The point is (" << x << "," << y << ")" << endl;
+        }
+};
+
+
+double distanceBetweenTwoPoints(Point c, Point d){
+    double dist = sqrt(pow((c.x-d.x),2.0) + pow((c.y-d.y),2.0));
+    return dist;
+}
+
+
+int main(){
+    Point p(1,1);
+    p.displayPoint();
+
+    Point q(4,6);
+    q.displayPoint();
+
+    double distance = distanceBetweenTwoPoints(p,q);
+    cout<< "# Distance between above two points is: " << distance << endl;
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

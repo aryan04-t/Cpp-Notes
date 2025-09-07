@@ -1,0 +1,257 @@
+# C++ Control Structures: 
+
+
+* Control structures are used to give flow and logic to a program 
+
+* There are 3 types of basic control structures: 
+
+(i) Sequence Structure 
+---> In this strucutre code follows a sequence in which things are set to be executed 
+
+(ii) Selection Structure 
+---> Here conditions are applied and on the basis of input whether if condition will be selected and executed or else-if or else condition will be selected and executed is checked and followed 
+---> Any other selection statements can also be used to make selection in the selection structure, this above one is just an example to explain the selection structure 
+
+(iii) Loop Structure 
+---> In this type of structure, a loop continues until the condition statement becomes false 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+# Implementation of Above Control Structures in Code: 
+
+
+* Codes which we have written until now were example of "Sequence Structure" there were no "if-else" statements or "switch case" statements, all the line of code were executed one by one in sequence 
+
+* Now, when we talk about "Selection Structure" then it can be implemented into code using various types of statements: 
+(i) if-else statement 
+(ii) if-else ladder (this ladder just has "else if" statements also other than if-else statement) 
+(iii) switch case 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Code for Syntax of if-else Statements:
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    int age;
+
+    cout<<"* Enter your age to check voting eligibility: ";
+    cin>>age;
+
+    if(age<18){
+        cout<<"---> You're not eligible for voting"<<endl;
+    }
+    else{
+        cout<<"---> You're eligible for voting"<<endl;
+    }
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Code for Syntax of if-else Ladder: 
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    int age;
+    cout<< "* Tell me your age: ";
+    cin>>age;
+
+    if((age<18) && (age>0)){
+        cout<<"---> You can not come to my party"<<endl;
+    }
+    else if(age==18){
+        cout<<"---> You are a kid and you will get a kid pass to the party"<<endl;
+    }
+    else if(age<1){
+        cout<<"---> You are not yet born"<<endl;
+    }
+    else{
+        cout<<"---> You can come to the party"<<endl;
+    }
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Code for Syntax of switch case statements: 
+
+
+// Switch case has a free fall flow, which ever case gets statisified, that case will be executed but if there is no "break" statement then all the cases below that will also be executed 
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    int age;
+    cout<<"* Enter your age: ";
+    cin>>age;
+
+    switch (age)
+    {
+    case 18: 
+        cout<<"---> You are 18"<<endl;
+        break;
+    case 22: 
+        cout<<"---> You are 22"<<endl;
+        break;
+    case 2: 
+        cout<<"---> You are 2"<<endl;
+        break;
+
+    default:                                    // If above no case is satisfying the input then this "default" case is executed by-default 
+    cout<<"---> No special cases"<<endl;
+        break;
+    }
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+* Now we're going to talk that how "loop structures" are implemented in coding: 
+
+* In C++ there are 3 types of Loops: 
+(i) For Loop 
+(ii) While Loop 
+(ii) do-While Loop 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Syntax of For Loop: 
+
+
+/* Syntax: 
+for(intitalization, condition, updation){
+	loop body(C++ code);
+}
+*/ 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Code of For Loop:
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    // Code for printing natural numbers 1 to 100 using For Loop 
+
+    for(int i=1; i<=100; i++){
+        cout<<i<<endl;
+    }
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Syntax of While Loop: 
+
+
+/* Syntax: 
+intialization;
+while(condtion){
+	C++ statements;
+	updation;
+}
+*/ 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Code of While Loop:
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    // Code for printing natural numbers 1 to 100 using While Loop 
+
+    int i=1;
+
+    while(i<=100){
+        cout<<i<<endl;
+        i++;
+    }
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Syntax of Do-While Loop:
+
+
+/* Syntax: 
+intialization;
+do{
+	C++ statements;
+	updation;
+}while(condition);
+*/
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Code of Do-While Loop: 
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    // Code for printing natural numbers 1 to 100 using Do-While Loop 
+
+    int i=1;
+
+    do{
+        cout<<i<<endl;
+        i++;
+    }while(i<=100);
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+** The only difference between "While" and "Do-While" loop is that, "Do-While" loop for sure executes for at least 1 time, even if the condition is false when we check it for the first time, but this doesn't happens with "While" and "For" loop 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

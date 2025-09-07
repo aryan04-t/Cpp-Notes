@@ -1,0 +1,51 @@
+# Object Oriented Programming in C++ (OOP): 
+
+
+* OOPS ---> Object Oriented Programming System 
+
+* OOP is just an approach to build programs & it just trys to eliminate the problems which are faced by conventional programming methods. 
+
+* As we know that C++ language was designed with the main intention of adding object-oriented features to C language. 
+
+* As the size of the program increases, it's readability & maintainability decreases and also the bug-free nature of a program decreases. 
+
+* So, OOP helps you to overcome these problems and it helps you to right much more optimal codes. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Procedure Oriented Programming (POP): 
+
+
+* POP consists of writing a set of instructions for the computer to follow 
+
+* Main focus is on functions and not on the flow of data 
+
+* Fuctions can either use local or golbal data 
+
+* Data moves openly from function to function, so data security is easily compromised 
+
+* Until now whatever codes we have written in C++, all were procedure oriented programming based.  
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+# OOP Introduction Continued...: 
+
+
+* OOP works on the concept of classes and objects. 
+
+* A class is a template to create objects. 
+
+* OOP treats data as a critical element. 
+
+* It decomposes the problem in objects and builds data and functions around objects. 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+

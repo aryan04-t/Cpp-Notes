@@ -1,0 +1,195 @@
+# Revisiting Pointers: 
+
+
+* We have studied pointers before and we know that a pointer is nothing but simply a data type which stores address of other data types. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Basic Example of Pointer: 
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    // Basic Example
+    int a = 4;
+    int* ptr = &a;                                                // Storing address of "a" variable in "ptr" pointer which is of int datatype 
+    cout<<"* The value of a is "<<*(ptr)<<endl;                   // Here we're dereferencing the "ptr" pointer to get the value stored in "a" variable 
+  
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# Difference Between Keyword and Operator: 
+
+
+* Keywords are tokens that are reserved and have a special meaning in a given programming language.
+
+* Operators are keywords that can take one or more arguments. 
+
+* Operators are usually associated with the standard mathematical operations, but for example "new" and "delete" are considered as single argument operators as well. 
+
+* "new and "delete" both are keywords but they're also operators. 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# Now Let's Study New Keyword: 
+
+
+* The “new” operator in C++ is used to allocate memory dynamically for a variable or an object at runtime. 
+
+* This means that the memory is allocated during the execution of the program, as opposed to being allocated at compile time.
+
+* When the “new” operator is called, it reserves a block of memory that is large enough to hold the object being created and then returns a pointer to the first byte of that memory block. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Here is the Syntax of "new" Operator in C++ language: 
+
+
+1. Pointer_Name = new Data_Type; 
+---> Here is the syntax for initializing the memory 
+
+E.g.: int *ptr = new int; 
+
+
+2. Pointer_Variable = new Data_Type(value);
+---> Here is the syntax for intializing the memory and assigning value to it 
+
+E.g.: int *ptr = new int(10); 
+
+
+3. Pointer_Variable = new Data_Type[size]; 
+---> Here is the syntax for intializing the memory for an array 
+---> This means the pointer will point to the base address of an array
+
+E.g.: int *ptr = new int[];
+
+
+@ One Extra Example for Better Understanding: 
+
+E.g. The following code dynamically allocates memory for an integer and assigns the value 100 to it: 
+
+int *p = new int;        // allocate memory for an int 
+*p = 100;                // assign value 42 to the memory location 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# Now Let's Study Delete Keyword: 
+
+
+* The “delete” operator is used to deallocate the memory that was previously allocated by “new” operator. 
+
+* It takes a pointer to the memory to be deallocated as an argument. 
+
+@ For example: delete p;                    // Deallocates the memory pointed by the p pointer 
+
+
+* Once a block of memory has been allocated by “new” operaator, it is important to deallocate it when it is no longer needed so that other parts of the program can reuse the memory. 
+
+* The “delete” operator releases the memory back to the system, and other parts of the program can use it. 
+
+
+@ Note: Use delete to deallocate memory allocated with "new" operator to avoid memory leaks. 
+
+
+@ Memory leaks occur when the program allocates memory dynamically but does not deallocate it properly. This causes the program to consume more memory gradually, eventually leading to poor performance or even crashing the program. 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# Example Code for New & Delete Keyword: 
+
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+    
+    // New Operator 
+
+    int *o = new int;                  // allocate memory for an int and store the address in "o" pointer 
+    *o = 100;                          // and assign value 100 to the memory which is allocated and whose address is stored in "o" pointer 
+    cout << "* The value at address which is stored in \"o\" pointer is: " << *(o) << endl;           // here we're dereferencing "o" pointer to get the value stored in the address which is stored in it 
+
+
+    // int *p = new int(40) 
+    float *p = new float(40.78); 
+    cout << "* The value at address which is stored in \"p\" pointer is: " << *(p) << endl; 
+
+
+    // Here we're dynamically initializing the array named "arr" 
+    int *arr = new int[3];
+
+    arr[0] = 10;
+    arr[1] = 20;
+    *(arr+2) = 30;          // This is the way how arrays' "behind the scenes" logic works 
+
+    // We have studied "Arrays, Pointers & Pointer Arithmetic" topic before, and there we studied that name of an array is a pointer in itself which stores the "address of 1st block of memory of an array" 
+
+    // "Address of 1st block of memory of an array" is also known as "Base Address of an array" 
+
+    // And above we're adding the index to the "base address of an array" and we're dereferencing it to store the value at that index which we have added to the base address 
+
+    // And this is the reason that why index starts with 0 in most programming languages like C, C++, Python, Java, etc. 
+    // Because to get the "address of 1st block of memory of an array" we have to add 0 to the "arr" pointer which is storing the base address of this array named "arr" and then we have to dereference it to store value inside it. 
+
+    // When we write arr[0], compiler in behind the scenes dereferences the "arr" pointer after adding the index to it. So, it simply means that if we want to store any value at 0th index of arr array then we can code it like this also to store it: *(arr+0) = 10; 
+    // *(arr+0) represents 0th index and it means same as arr[0] 
+
+    cout << endl; 
+    
+    for(int i=0; i<3; i++){
+        cout <<"* Value at " << i << " index of \"arr\" array is: " << arr[i] << endl; 
+    }
+
+
+
+    // Delete Operator 
+
+    delete o;
+    delete p;
+    delete[] arr;
+
+    // Here we're using "delete" operator to deallocate the memory which was allocated dynamically by using "new" operator 
+    // We're doing this so we can avoid any kind of memory leaks. 
+
+    
+    return 0; 
+
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# References Cited: 
+
+
+https://stackoverflow.com/questions/5753818/are-operators-and-keywords-the-same#:~:text=Keywords%20are%20tokens%20that%20are,single%20argument%20operator%20as%20well.
+
+https://www.shiksha.com/online-courses/articles/new-and-delete-operators-in-cpp/
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+

@@ -1,0 +1,80 @@
+# Arrays, Pointers & Pointer Arithmetic: 
+
+
+* If we create an integer variable "a" then if we type "&a", it gives us the address of that variable "a", but in case of arrays, if we have an integer array marks and if we type &marks or &marks[any_index_value] then this will be wrong 
+
+* In case of arrays the "name of an array" is the "address of 1st block of that array" or we can say it is the address of 0th index of array, and if we store this address in an integer pointer and if we derefernce that pointer then we get the value of data which is present at 0th index and if we increment this pointer by 1 and then if we dereference it then we will get the value of data which is present at 1st index and like this if we keep incremeting this pointer and if we keep dereferencing it, we will keep getting the value which is present in the index where the pointer will be pointing in real time after n number of incrementations 
+
+* Pointer Arithmetic Formula: 
+---> new address = address of 0th index of array + (i * sizeof(data type)) 
+---> Here "i" is the number of times pointer is incremented from the current address 
+---> p+i = p + (i*4) ---> [This is the formula incase of integer data type, because integer data type has a size of 4 bytes] 
+---> In above formula 'p' is the pointer which has the address of array's 0th index 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Example-1 Code for Understanding Pointers with Arrays:
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    int marks[] = {10, 20, 30, 40};
+
+    int* p = marks; 
+    
+    // Pointer Airthmetic in Arrays using numbers
+
+    cout<<"The address of 0th index is: "<<p<<endl;
+    cout<<"The value at 0th index *(p) is: "<<*p<<endl;
+    cout<<endl;
+
+    cout<<"The address of 1st index is: "<<(p+1)<<endl;
+    cout<<"The value at 1st index *(p+1) is: "<<*(p+1)<<endl;
+    cout<<endl;
+
+    cout<<"The address of 2nd index is: "<<(p+2)<<endl;
+    cout<<"The value at 2nd index *(p+2) is: "<<*(p+2)<<endl;
+    cout<<endl;
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Example-2 Code for Understanding Pointers with Arrays:
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    int arr[4] = {10,20,30,40};
+    int* p = arr;
+
+    // Pointer Airthmetic in Arrays using increment and decrement operator
+
+    // cout<<*(p++)<<endl; 
+    // cout<<*(++p)<<endl; 
+
+    cout<<p<<endl;
+    cout<<*p<<endl;
+
+    cout<<++p<<endl;
+    cout<<*p<<endl;
+
+    cout<<++p<<endl;
+    cout<<*p<<endl;
+
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

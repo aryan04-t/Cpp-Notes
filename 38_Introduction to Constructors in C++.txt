@@ -1,0 +1,84 @@
+# Constructors in C++: 
+
+
+* A constructor is just like a normal function but it does not have any return types, even "void" cannot be their return type, it returns nothing. 
+
+* A constructor is just used for initializing objects of it's class. 
+
+* Constructors have same name as of their class. 
+
+* Constructors are of 2 types:
+     (i) Non-parameterized Constructor (a.K.a Default Constructor) 
+    (ii) Parameterized Constructor 
+
+* If you have not coded any constructor explicitly for any class, then the compiler creates a "non-parameterized constructor" for it. But if you have coded a constructor for a class explictly, whether it is "parameterized or non-parameterized" it doesn't matter, because once that class have a constructor, then that class doesn't gets provided by a "non-parametetrized constructor" by the compiler. 
+
+* And in C++, compiler created default constructor has an empty body, i.e., it doesn't assign default values to data members. 
+
+
+/*
+    # Characteristics of Constructors: 
+        1. It should be declared in the public section of the class. 
+        2. They are automatically invoked whenver the object is created. 
+        3. They cannot return values and do not have return types. 
+        4. It can have default arguments. 
+        5. We cannot refer to their address. (This is a little advance point, but we will talk about it when time comes) 
+*/ 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example Code for Non-Parameterized / Default Constructors: 
+
+
+#include <iostream>
+using namespace std;
+
+class Complex{
+    int a, b;
+
+    public: 
+        // Creating a Constructor 
+        // Constructor is a special member function of a class with the same name as of the class 
+        // It is used to initialize the objects of it's class 
+        // It is automatically invoked whenever an object is created 
+
+        Complex(void);                // Non-parameterized constructor declaration
+
+        void printNumber(){
+
+            cout << "* Your number is: " << a << " + " << b << "i" << endl;
+        }
+};
+
+
+// This is where we're giving definition to non-parameterized / default constructor, and it is called non-parameterized because it doesn't takes any parameters as input, and it is also called default because this is the constructor which is by default provided by the compiler to a class if a class don't have any constructor 
+
+Complex :: Complex(void){ 
+	
+    // I have commented these below lines, that's why this constructor will give garbage values just like compiler's provided "by-default constructor", because this constructor don't have any body and as we know that the compiler's provided constructor for classes which don't have any constructor also don't have any body. So, when you will make objects, if you want to give any values to the private variables you can uncomment below lines and you can try running the code by giving your own values, try on your own and explore. 
+
+    /* 
+        a = 10;
+        b = 0;
+    */
+
+    // cout<<"Hello world"; 
+}
+
+int main(){
+    
+    Complex c1, c2, c3;
+    c1.printNumber();
+    c2.printNumber();
+    c3.printNumber();
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

@@ -1,0 +1,79 @@
+# Operator Precedence: 
+
+
+* When we talk about operator precedence, we just want to say that which operator has the higher priority 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+* Code For Example of Operator Precedence: 
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    int a=10, b=60;
+    int c = a*5+b/6;
+    cout<<c;
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+* Here above to know that how the compiler will solve this expression, we should know that how operator precedence and associativity works in C++
+
+* When we don't know the operator precedence, our 1st instinct is to apply BODMAS rule of mathematics and it might give us the correct answer sometimes, but it won't be helpfull when we start using non arithmetic operators also in our expressions 
+
+* So, for checking precedence of operators, you can refer this website: 
+en.cppreference.com/w/cpp/language/operator_precedence 
+
+* So, as we see the website we see the operator precendece in C++ & we get to know that compiler will solve the above expression like this: (a*5)+(b/6) ---> because '*' & '/' operator have higher precedence than '+' operator  
+
+* and the output will be 60 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+* But if we take a bigger expression where 2 or more than 2 operators have same precendence, then we will put brackets on the basis of associativity, even associativity is mentioned on the website as per the operator precedence 
+
+* Lets see an example of associativity also: 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+* Code For Example of Associativity: 
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    int a=10, b=60;
+    int c = a*5+b-45+87;
+    cout<<c;
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+* Now in the above code if we check operator precedence then we can put brackets like this, around the operands which have mutiplication operator, because as we see that multiplication operator has the highest precedence among all the operators which are present in the expression 
+---> (a*5)+b-45+87
+
+* But now we see that addition and subtraction, both the operators have same preccedence, so here we will check associativity, addition and subtraction operators have associativity (left to right) as it is mentioned in the website, so brackets can be applied like this 
+---> ((((a*5)+b)-45)+87)
+
+* Like this the compiler will solve the above expression and if we solve this expression manually now by opening the brackets one by one, then we get the answer as 152, and even when we compile and run the above code, we get the answer as 152 only 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

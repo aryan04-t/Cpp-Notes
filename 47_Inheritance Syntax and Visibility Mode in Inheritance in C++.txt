@@ -1,0 +1,114 @@
+# Syntax of Inheritance and Visibility Mode in Inheritance: 
+
+
+
+* Generally whenever you write something in coding inside double curly braces {{}} then it means that those double curly braces and the text written inside them should be replaced in future by something that is mentioned inside those double curly braces. 
+
+
+
+* Syntax of Inheritance: 
+
+// Derived Class Syntax 
+class {{derived-class-name}} : {{visibility-mode}} {{base-class-name}}{ 
+    class members/methods/etc... 
+} 
+
+* After writing the class keyword we have to write the derived class name and then put a colon “:” sign. 
+* After the colon “:” sign we have to write the visibility mode and then we have to write the base class name. 
+
+
+
+* When a base class is obtained by a derived class with the help of inheritance, the accessibility of base class by the derived class is controlled by visibility modes. 
+
+* Visibility mode means that how you want to inherit the members of base class which can be inherited. 
+
+
+
+@ Important Points about Visibility Mode: 
+
+(i) Visibility mode can be of 3 types, all the 3 types of access specifiers can be used here to define visibility mode: 
+    (a) Public 
+    (b) Private 
+    (c) Protected (Sooner we're going to study this access specifier don't take tension) 
+
+(ii) Default visibility mode is private, if you don't specify any visibility mode then by default it is considered as private. 
+
+(iii) Public Visibility Mode means Public members of the base class becomes Public members of the derived class. 
+
+(iv) Private Visibility Mode means Public members of the base class become Private members of the derived class. 
+
+
+
+@ Private members of a "Base Class" can never be inherited. 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example Code for Single Inheritance: 
+
+
+#include <iostream>
+using namespace std;
+
+
+// Base Class 
+class Employee{
+    public:
+        int id;
+        float salary;
+
+        Employee(){
+
+        }
+
+        Employee(int inpId){
+            id = inpId;
+            salary = 34.0;
+        }
+}; 
+
+
+// Creating a Programmer class derived from Employee Base Class 
+class Programmer : public Employee{ 
+    public: 
+        int languageCode; 
+        Programmer(int inpId){ 
+            id = inpId; 
+            languageCode = 9; 
+        } 
+        void getData(){ 
+            cout<< "@ Id of this object is " << id<<endl; 
+        } 
+}; 
+
+
+// Whenever you call the contructor of derived class to make an object, then while making an object of that derived class compiler automatically calls the constructor of base class.
+
+// So, it's necessary that the base class should have a default constructor in this scenario. 
+
+// If you're making a parameterized constructor for the "Base Class" then code the default constructor also explicitly, if you're not making any parameterized constructor explicitly for the "Base Class" then there is also no need to code the default constructor explicitly, because compiler will handle this situation by providing the default constructor on it's own. 
+
+
+int main(){ 
+
+    Employee harry(1), rohan(2); 
+    cout << "* Salary of Harry is: " << harry.salary << endl; 
+    cout << "* Salary of Rohan is: " <<  rohan.salary << endl; 
+
+    Programmer skillF(10); 
+    cout << "@ Language Code of skillF is: " << skillF.languageCode << endl; 
+
+    cout << "@ Id of skillF is: " << skillF.id << endl; 
+
+    skillF.getData(); 
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+

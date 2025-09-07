@@ -1,0 +1,90 @@
+# Recursions & Recursive Functions: 
+
+
+* Simply "Recursion" or we can say a "Recusrive Function" is a just a function that "calls itself" repeatedly until a certain condition is met. 
+
+* A recursive function performs a number of repetitive calls to itself from within the function & it performs these repeatitive calls to the function until the base condition is met. The base condition is present inside the function and this condition is essential otherwise the function will enter an infinite loop, and once the base condition is satisfied, the recursive function stops the execution. 
+
+* Recursion is required in problems concerning data structures and advanced algorithms, such as Graph and Tree Traversal. 
+
+* But in some cases it can be a bad choice to use recursion instead of iterative approach as it can increase the overhead when it has to call itself a lot of times. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Example-1 Code for Finding Factorial Using Recursion: 
+
+
+#include<iostream>
+using namespace std;
+
+
+int fact(int z){
+    if(z<0){
+        cout<<"Error";
+        exit(0);
+    }
+    else if(z==1 || z==0){
+        return 1;
+    }
+    else{
+        return z * fact(z-1);
+    }
+}
+
+
+int main(){
+
+    int a;
+
+    cout<<"@ Enter the number of which you want to calculate factorial: ";
+    cin>>a;
+
+    long int factorial = fact(a);
+    cout<<"# Factorial of "<<a<<" is: "<<factorial<<endl;
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Example-2 Code for Finding nth Fibonacci Element Using Recursion:
+
+
+#include<iostream>
+using namespace std;
+
+int fib(int d){
+    if(d<0){
+        cout<<"Error";
+        exit(0);
+    }
+    else if(d<=1){
+        return 1;
+    }
+    else{
+        return fib(d-1) + fib(d-2);
+    }
+}
+
+int main(){
+
+    int q;
+
+    cout<<"@ Enter the index at which you want to see the value of Fibonacci Series's Element: ";
+    cin>>q;
+
+    int value = fib(q);
+
+    cout<<"# The value of Fibonacci Series's Element at "<<q<<"th index is: "<<value<<endl;
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

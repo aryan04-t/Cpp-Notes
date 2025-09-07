@@ -1,0 +1,225 @@
+# Array of Objects Using Pointers: 
+
+
+* Array of objects is an array where each element is an object. 
+
+* In this array we're going to use pointers to access each index and store data in it. 
+
+
+* There is no more theory in this topic, let's see the code directly and understand the concept. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example-1: Code for "Array of Objects Using Pointers": 
+
+
+#include<iostream>
+using namespace std;
+
+
+class Complex{
+
+    private:
+        int real;
+        int imaginary;
+    public: 
+        void setData(int a, int b);
+        void displayData();   
+};
+
+
+void Complex :: setData(int a, int b){
+    real = a;
+    imaginary = b;
+}
+
+void Complex :: displayData(){
+    cout << "@ Your complex number is " << real << "+" << imaginary << "i" << endl;
+}
+
+
+int main(){
+
+
+    Complex *p = new Complex[5];
+
+
+    p->setData(1,2); 
+    p->displayData(); 
+
+    (p+1)->setData(50,33); 
+    (p+1)->displayData(); 
+
+    (p+2)->setData(9,72); 
+    (p+2)->displayData(); 
+
+    (p+3)->setData(400,65); 
+    (p+3)->displayData(); 
+
+    (p+4)->setData(0,3000); 
+    (p+4)->displayData(); 
+
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example-2: Code for "Array of Objects Using Pointers": 
+
+
+#include<iostream>
+using namespace std;
+
+
+class ShopItem
+{
+    int id;
+    float price;
+    public:
+        void setData(int a, float b){
+            id = a;
+            price = b;
+        }
+        void getData(void){
+            cout << "@ Code of this item is: " << id << endl;
+            cout << "@ Price of this item is: "<< price << endl;
+            cout << endl;
+        }
+};
+
+
+int main(){
+
+    int size = 3;
+
+    ShopItem *ptr = new ShopItem[size];
+    ShopItem *ptrTemp = ptr;
+
+    int p, i;
+    float q;
+
+    for (i = 0; i < size; i++){
+
+        cout << "* Enter Id of item-" << i+1 << ": ";
+        cin >> p; 
+        
+        cout << "* Enter Price of item-" << i+1 << ": ";
+        cin >> q; 
+
+        cout << endl; 
+
+        // (*ptr).setData(p, q); 
+        ptr->setData(p, q); 
+        ptr++; 
+    }
+
+    cout << "Displaying Inventory's Information... " << endl;
+    cout << endl;
+
+    for (i = 0; i < size; i++){
+
+        cout << "# Item number: " << i+1 << endl;
+        ptrTemp->getData();
+        ptrTemp++;
+    }
+    
+    return 0;
+} 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example-3: Code for "Array of Objects Using Pointers": 
+
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+class Google{
+
+    private:
+        string empName;
+        int googleID;
+        int empSalary;
+    public:
+        void addToDatabase(string, int, int);
+        void retrieveFromDatabase();
+};
+
+
+void Google :: addToDatabase(string a, int b, int c){
+    empName = a;
+    googleID = b;
+    empSalary = c;
+}
+
+void Google :: retrieveFromDatabase(){
+
+    cout << "@ Name of this Employee is: " << empName << endl;
+    cout << "@ Google ID of " << empName << " is: " << googleID << endl;
+    cout << "@ Salary of " << empName << " is: " << empSalary << endl;
+    cout << endl; 
+}
+
+
+int main(){
+
+    int size; 
+    cout << "* Enter the number of employees whose data you want to insert in the Database: ";
+    cin >> size;
+
+    cout << endl;
+
+    Google *G = new Google[size];
+    Google *tempG = G;
+
+    string name;
+    int id, salary, i;
+
+    for(i=0; i<size; i++){
+
+        cout << "* Enter the Name of Employee No. " << i+1 << ": "; 
+        cin >> name; 
+
+        cout << "* Enter the Google ID of " << name << ": ";
+        cin >> id;
+
+
+        cout << "* Enter the Salary of " << name << ": ";
+        cin >> salary;
+
+        cout << "$ Congrats!!! " << name << "'s information is successfully saved in the database." << endl; 
+        
+        G->addToDatabase(name, id, salary);
+        G++;
+
+        cout << endl; 
+    }
+
+    cout << "$ Retrieving Data from Database..." << endl;
+    cout << "$ Displying the Retrieved Data!!!" << endl;
+    cout << endl;
+
+    for(i=0; i<size; i++){
+
+        tempG->retrieveFromDatabase();
+        tempG++;
+    }
+
+    delete[] G;
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+

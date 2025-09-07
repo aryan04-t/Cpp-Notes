@@ -1,0 +1,83 @@
+# Passing Objects as Function Arguments: 
+
+
+* You can pass objects also as function arguments just like you pass any other datatype as an argument. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example Code for Passing Objects as Function Argument: 
+
+
+#include<iostream>
+using namespace std;
+
+
+class Complex{
+
+    private:
+        int a;
+        int b;
+
+    public: 
+        void setData(int g1, int g2);
+        void setDataBySum(Complex o1, Complex o2);
+        void print1stNumber(void);
+        void print2ndNumber(void);
+        void printNumberAfterSum(void);
+};
+
+
+void Complex::setData(int g1, int g2){
+    a = g1;
+    b = g2;
+}
+
+
+void Complex::setDataBySum(Complex o1, Complex o2){
+    a = o1.a + o2.a;
+    b = o1.b + o2.b;
+}
+
+
+void Complex::print1stNumber(void){
+    cout << "* Your 1st complex number is: " << a << "+" << b << "i" << endl;
+}
+
+
+void Complex::print2ndNumber(void){
+    cout << "* Your 2nd complex number is: " << a << "+" << b << "i" << endl;
+}
+
+
+void Complex::printNumberAfterSum(void){
+    cout << "@ The sum of above two complex numbers is: " << a << "+" << b << "i" << endl;
+}
+
+
+int main(){
+
+    Complex c1, c2, c3;
+
+    cout<<endl;
+    
+    c1.setData(2, 5);
+    c1.print1stNumber();
+
+    c2.setData(4, 6);
+    c2.print2ndNumber();
+
+    c3.setDataBySum(c1, c2);
+    c3.printNumberAfterSum();
+
+    cout<<endl;
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

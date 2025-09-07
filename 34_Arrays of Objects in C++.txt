@@ -1,0 +1,72 @@
+# Arrays of Objects: 
+
+
+* Just like you make an array of any primitive datatypes, like that if you have to deal with a lot of objects than instead of making each object individually you can make an object array. 
+
+* Class is a advanced version of structures so it is also a custom data type only. 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example Code for Object Array: 
+
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+class Employee{
+
+    private:
+        string name;
+        int epId;
+        int salary;
+
+    public:
+        void setDetails();
+        void displayDetails();
+};
+
+
+void Employee::setDetails(){
+    cout << "* Enter the name of Employee: ";
+    cin >> name;
+    cout << "* Enter the Employee Id of " << name << ": ";
+    cin >> epId;
+    cout << "* Enter the Salary of " << name << ": ";
+    cin >> salary;
+    cout<<endl;
+}
+
+
+void Employee::displayDetails(){
+    cout << "@ Name of the Employee is: " << name << endl;
+    cout << "@ Employee Id of " << name << " is: " << epId << endl;
+    cout << "@ Salary of " << name << " is: " << salary << endl;
+    cout<<endl;
+}
+
+
+int main(){
+
+    Employee worker[3];
+
+    for(int i=0; i<3; i++){
+        worker[i].setDetails();
+    }
+
+    for(int i=0; i<3; i++){
+        worker[i].displayDetails();
+    }
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

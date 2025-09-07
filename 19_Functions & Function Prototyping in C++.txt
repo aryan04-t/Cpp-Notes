@@ -1,0 +1,112 @@
+# Functions in C++: 
+
+
+* A function is a block of code that performs some operation 
+
+* And in C++ you have to keep all the functions above int main(), if you keep functions below int main() then the compiler will give error that "function was not declared in this scope" 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Example Code of a Function: 
+
+
+#include<iostream>
+using namespace std;
+
+int sum(int a, int b){
+
+    // a and b are formal parameters which will take value from actual parameters num1 and num2
+    int c = a + b;
+    return c;
+}
+
+int main(){
+
+    int num1, num2;
+    cout<<"* Enter first number: ";
+    cin>>num1;
+    cout<<"* Enter second number: ";
+    cin>>num2;
+
+    // num1 and num2 are actual parameters
+    cout<<"@ The sum is: "<<sum(num1, num2);
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+* Now as we have discussed above that we have to keep functions above int main() otherwise an error will be generated 
+
+* But there is a way out, you can keep your functions below int main() and your code will run smoothly without generating any error, this can be done using "Function Prototyping"
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+# Function Prototying in C++:
+
+
+* In function prototyping we can declare a function above int main() and we can give definition to that function below int main() and like this our code will run smoothly without giving any error, even if the function is written below int main() 
+
+* "Function Prototyping" is a declaration of the function that informs the program about the number of parameters, kind of parameters and as well as the type of value the function will return 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Example Code for Function Prototyping: 
+
+
+#include<iostream>
+using namespace std;
+
+int sum(int a, int b);
+
+int main(){
+
+    int num1, num2;
+    cout<<"* Enter first number: ";
+    cin>>num1;
+    cout<<"* Enter second number: ";
+    cin>>num2;
+
+    // num1 and num2 are actual parameters
+    cout<<"@ The sum is: "<<sum(num1, num2);
+
+    return 0;
+}
+
+int sum(int a, int b){
+
+    // a and b are formal parameters which will take value from actual parameters num1 and num2
+    int c = a + b;
+    return c;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+* Function Prototyping can be done in different syntaxes, below are the acceptable and non-acceptable syntaxes of function prototyping in two different examples: 
+
+
+(i) Example-1: 
+
+// int sum(int a, int b); //--> Acceptable 
+// int sum(int, int); //--> Acceptable 
+// int sum(int a, b); //--> Not Acceptable
+
+
+(ii) Example-2: 
+
+// void g(void); //--> Acceptable 
+// void g(); //--> Acceptable 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

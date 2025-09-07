@@ -1,0 +1,38 @@
+# Difference between Methods & Functions: 
+
+
+* In simple terms, the functions which are written inside a class are called "methods" and the functions which are written globally are know as "functions".  
+
+* So, member functions of a class are also known as "methods" but you can call them as "functions" also, it's not illegal, because at the end of the day they're functions only, but whenever someone uses the word "method" don't get confused. 
+
+
+@ Methods:
+
+1. A method also works the same as that of function. 
+2. A method is defined inside a class. For Example: main() in Java. 
+3. A method can be private, public, or protected. 
+4. The method is invoked by its reference/object only. For Example: If class has obj as an object name, then the method is called by: obj.method(); 
+5. A method is able to operate on data that is contained within the class. 
+6. Each object has it’s own method which is present in the class. 
+
+
+@ Functions:
+
+1. A function is a block of statements that takes specific input, does some computations, and finally produces the output. 
+2. A function is defined independently. For Example: main() in C++. 
+3. By default a function is public. 
+4. It can be accessed from anywhere in the entire program. 
+5. It is called by its name itself. 
+6. It has the ability to return values if needed. 
+7. If a function is defined, it will be the same for every object that has been created. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+@ Reference Sited: 
+
+https://www.geeksforgeeks.org/methods-vs-functions-in-c-with-examples/ 
+
+
+
+

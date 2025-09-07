@@ -1,0 +1,94 @@
+# Arrow Operator: 
+
+
+* An arrow operator is formed by using a minus sign and a greater than symbol, it looks like this "->". 
+
+* The Arrow(->) operator exists to access the members of the structures, unions and classes using pointers. 
+
+* This is the Syntax for "Arrow Operator":  
+(pointer_name)->(variable_name / function_name)  
+
+* There is no more theory to study in this topic, let's see the code directly and understand the concept in even better way. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example Code for "Pointer to Objects" and "Arrow Operator": 
+
+
+#include<iostream>
+using namespace std;
+
+
+class Complex{
+    int real, imaginary;
+    public:
+        void getData(){
+            cout << "* The real part is: " << real << endl;
+            cout << "@ The imaginary part is: " << imaginary << endl;
+            cout << endl;
+        }
+
+        void setData(int a, int b){
+            real = a;
+            imaginary = b;
+        }
+
+};
+
+
+int main(){
+
+    // We all know that we can make an object of a class and we can access it's public members directly using that object 
+    Complex c1;
+    c1.setData(1, 54); 
+    c1.getData(); 
+
+
+    
+    // But just like any primitive data type, we can also make pointer of a class and we can store the address of an object in it and after dereferencing it we can use that pointer also to access the public members of that class 
+
+    // Pointer to Object 
+    Complex *ptr = &c1;                             // We're storing address of c1 object in "ptr" pointer and in next line of code we're dereferencing the pointer and then we're accessing the public function using the object in this way 
+    (*ptr).getData();                               // Here the brackets are necessary because the "." dot operator a.k.a the "direct memeber access operator" has higher precedence than the "*" dereference operator 
+
+
+    Complex *ptr1 = new Complex;
+    (*ptr1).setData(20, 500);                
+    (*ptr1).getData();                     
+    
+    // So, we can also access the public members of a class using pointers like this, but isn't it hectic to first dereference the pointer of an object and then to use that dereferenced pointer to access members of that class 
+
+
+
+    // To even simply this above process we use "Arrow Operator", it is represented like this "->" 
+    // And arrow operator behind the scenes works exactly like "dereference operator (*) + direct member access operator (.)" 
+
+    Complex *ptr2 = new Complex; 
+    ptr2->setData(40, 1000);                 // This line of code is doing same work as this line of code "(*ptr1).setData(20, 500);" 
+    // Just the difference is that here we're using "arrow operator", which dereferences the pointer 1st and then it accesses the function whihc is mentioned ahead, and in this scenario "(*ptr1).setData(20, 500);" we were using "dereference operator (*) & direct member access operator (.)" together to do the same work 
+
+    ptr2->getData(); 
+    // this "Arrow Operator" simply wants to say that whichever object the "ptr2" pointer is pointing towards, use that object and run the getData() function of that class to which this object belongs   
+
+
+
+    // Both the above ways are valid to use the object pointer and none of the way is better than other, if you want then you can use this method: 
+    // (*ptr1).setData(20, 500);
+
+    // And if you want then you can even use this method also 
+    // ptr2->setData(40, 1000); 
+
+
+    // "Arrow Operator" just tries to simply things for you, and it is used in "DSA" often, when you will study "Linked List" you can use arrow operator there instead of using "dereference operator (*) & direct member access operator (.)" together, just so that things are simplified for you.  
+
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+

@@ -1,0 +1,91 @@
+# Static Member Functions of a Class: 
+
+
+* We need static data members in a class, it's pretty obvious that we need them when we don't want a variable's value to be unique with respect to each object, but why do we need static member functions? 
+
+* Member functions are not something which are unique with respect to each object, they're already stored in a commonly shared memory of a class, where all objects can access them commonly, then what are static member functions? 
+
+
+@ Static member functions of a class are those functions which can only access static data members of class and other static member functions of class. 
+
+@ A static member function is independent of any object of the class. 
+
+@ These functions can be directly called without using objects, we can call them directly using class's name with "scope resolution operator". 
+
+@ They can be called even if no objects of the class exist. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Code for Static Member Functions: 
+
+
+#include<iostream>
+using namespace std;
+
+class Employee{
+
+    private:
+        int id; 
+
+        // This is the syntax for declaring "Static data member of class" inside the class
+        static int count;                 // Static data member of class
+
+    public:
+        void setData(); 
+        void getData(); 
+        static void getCount();           // Here we've declared a static member function 
+};
+
+
+// Syntax for declaring "static data member of class" outside the class 
+int Employee::count;           // Default value is 0
+
+
+void Employee::setData(){
+    cout << "* Enter the id of the employee: ";
+    cin >> id;
+    count++;
+}
+
+void Employee::getData(){
+    cout << "@ Id of the Employee is: " << id << endl;
+}
+
+// Here we're defining the "static member function" which we've declared inside the class 
+void Employee::getCount(){
+
+    cout << "# The count currently is: " << count <<endl;
+
+    // cout << "@ Id of the Employee is: " << id << endl;              // ---> This line will give error, because "id" is not a static variable of class and this function getCount() is a static member function. And static member functions can only access "static data members & other static member functions". 
+
+    cout << endl;
+}
+
+
+int main(){
+
+    Employee Aryan, Hehehe, Hahaha;
+
+    Aryan.setData();
+    Aryan.getData();
+    Employee::getCount();              // You can run "static member functions" using class name also with scope resolution operator because "static member functions" can only access "static data members" and "other static member functions" that's why whatever operation these function's are going to perform they're not going to be unique with respect to each object, therefore you can call them using class's name also and you can also use objects to call them, it won't change anything for these "static member functions". 
+
+    Hehehe.setData();
+    Hehehe.getData();
+    Hehehe.getCount();                 // Here you can see, you can run the "static member function" using an object also, there is no problem 
+
+    // Empolyee::setData();             // ---> This line will throw error because you cannot call a non-static member function using name of class 
+    Hahaha.setData(); 
+    Hahaha.getData(); 
+    Employee::getCount(); 
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

@@ -1,0 +1,36 @@
+# Typecasting of Variables:
+
+
+* Changing the datatype of a variable to another datatype is called typecasting 
+
+* Typecasting can be done in two ways: "automatically" by the compiler and "manually" by the programmer or user 
+
+* Type Casting is also known as "Type Conversion" 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Code: 
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    int a = 100;
+    float b = 9.99;
+
+    cout<<a+b<<endl;
+    cout<<a+(int)b<<endl;           // This is the syntax of typecasting in C++
+    cout<<a+int(b)<<endl;           // Typecating can be done like this also in C++ 
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

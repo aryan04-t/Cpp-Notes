@@ -1,0 +1,64 @@
+# Constructor Overloading in C++: 
+
+
+* One class can have multiple constructors. 
+
+* And when you have multiple constructors of different different arguments then whichever argument set will match your invoking call of constructor that contructor will run. 
+
+* As we all know that constructors have same name as of their class, so all these constructors of different different parameters will have same name. 
+
+* And just like "function overloading" when a constructor name is overloaded with different jobs it is called "Constructor Overloading". 
+
+* In last topic "Default & Parameterized Constructor" in "# Example-2 Code for Parameterized Constructors (Complex Example): // Member Function Approach" I have done constructor overloading, there we have parameterized and non parameterized both the constructors but let's see one more example of "Constructor Overloading". 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example code for Constructor Overloading: 
+
+
+#include <iostream>
+using namespace std;
+
+class Complex{
+    int a, b;
+
+    public:
+        Complex(){                            // Non-parameterized constructor / Default constructor 
+            a = 0;
+            b =0;
+        }
+
+        Complex(int x){                       // Single parameter constructor 
+            a = x;
+            b = 0;
+        }
+
+        Complex(int x, int y){                // 2 parameter constructor 
+            a = x;
+            b = y;
+        }
+
+        void printNumber(){
+            cout << "* Your number is " << a << " + " << b << "i" << endl;
+        }
+};
+
+int main(){
+    Complex c1(4, 6);
+    c1.printNumber();
+
+    Complex c2(5);
+    c2.printNumber();
+
+    Complex c3;
+    c3.printNumber();
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

@@ -1,0 +1,61 @@
+# Destructors in C++: 
+
+
+* Destructor never takes an argument and nor does it returns any value. 
+
+* It is ran by compiler implicitly whenever it exits your code or any block of code, to clear storage which was occupied by that code. 
+
+* Whenever the compiler gets to know that the object will not be needed more, it calls the destructor and destroys the object and free ups the memory which was occupied by that object. 
+
+* Constructors have same name as of their class and destructors also have same name as of their class, but they have a "tilde" in the starting of their name. 
+
+* So, if we have a class named "Number", then Number(){} is it's default constructor and ~Number(){} is it's destructor. 
+
+* Destructor overloading is not possible, this is not a concept, because as we know that destructors can never take any arguments. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example Code for Destructors: 
+
+
+#include<iostream>
+using namespace std;
+
+// Destructor never takes an argument nor does it return any value 
+int count=0;
+
+class num{
+    public:
+        num(){
+            count++;
+            cout<<"@ This is the time when constructor is called for object number: "<<count<<endl;
+        }
+
+        ~num(){
+            cout<<"# This is the time when my destructor is called for object number: "<<count<<endl;
+            count--;
+        }
+};
+
+
+int main(){
+    cout<<"* We are inside our main function"<<endl;
+    cout<<"* Creating first object n1"<<endl;
+    num n1;
+    {
+        cout<<"* Entering this block"<<endl;
+        cout<<"* Creating two more objects"<<endl;
+        num n2, n3;
+        cout<<"* Exiting this block"<<endl;
+    }
+    cout<<"* Back to main"<<endl;
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

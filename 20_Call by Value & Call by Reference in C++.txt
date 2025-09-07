@@ -1,0 +1,143 @@
+# Call by Value & Call by Reference: 
+
+
+* "Call by Value" in C++ is a programming method that passes the value of a variable to a function as an argument, instead of passing the memory address of the variable. 
+
+* In "Call by Reference" is a method in which we pass the reference or address of the actual parameter to the function's formal parameters, which means if there is any change in the values inside the function, it reflects that change in the actual values. 
+
+* "Call by Reference" can be done either using "Reference Varibales" or by using "Pointers" 
+
+
+#############
+---> This statement is wrong. (Correct is Later)
+@ Note: Function arguments and parameters, both the words mean the same thing, they are synonymns, and they can be used interchangeably. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Code for Call by Value: 
+
+
+#include<iostream>
+using namespace std;
+
+
+// this is call by value 
+// & this code will not swap the numbers 
+
+void swap(int a, int b){
+
+    // a & b are formal arguments 
+    // here formal arguments are getting swapped but there will be no change in actual arguments because this is call by value 
+
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+int main(){
+
+    // num1 & num2 are actual arguments 
+    int num1 = 10, num2 =20;
+
+    cout<<"Value of num1 before swap is: "<<num1<<" & value of num2 before swap is: "<<num2<<endl;
+
+    swap(num1,num2);
+
+    cout<<"Value of num1 after swap is: "<<num1<<" & value of num2 after swap is: "<<num2<<endl;
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Code for Call by Refernce using "Reference Variables": 
+
+
+#include<iostream>
+using namespace std;
+
+
+// this is "call by reference" using "Reference Variables"
+// & this code will swap the numbers 
+
+void swap(int &a, int &b){
+
+    // a & b are formal arguments 
+    // here formal parameters are reference variables of actual parameters, so any change in the function will reflect change in the actual parameters because, formal parameters are just nicknames of actual parameters, we're performing the swap indirectly with actual parameters only inside the function in the case of "Call by Refernece" by "Reference Variables" 
+
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+int main(){
+
+    // num1 & num2 are actual arguments 
+    int num1 = 10, num2 =20;
+
+    cout<<"Value of num1 before swap is: "<<num1<<" & value of num2 before swap is: "<<num2<<endl;
+
+    swap(num1,num2);
+
+    cout<<"Value of num1 after swap is: "<<num1<<" & value of num2 after swap is: "<<num2<<endl;
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Code for Call by Reference using "Pointers": 
+
+
+#include<iostream>
+using namespace std;
+
+
+// this is call by reference using "Pointers"
+// & this code will swap the numbers 
+
+void swap(int* a, int* b){
+
+    // a & b are formal arguments 
+    // here address of actual parameters is passed to formal parameters, so any change in the function will reflect change in the actual parameters  
+
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main(){
+
+    // num1 & num2 are actual arguments 
+    int num1 = 10, num2 =20;
+
+    cout<<"Value of num1 before swap is: "<<num1<<" & value of num2 before swap is: "<<num2<<endl;
+
+    swap(num1,num2);
+
+    cout<<"Value of num1 after swap is: "<<num1<<" & value of num2 after swap is: "<<num2<<endl;
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+# Arrays and Functions: 
+
+
+* We know that name of an array is of by default pointer type and it holds the base address of an array. 
+* So, whenever we're passing an array to a function, it is always pass by reference and not pass by value, because we're passing the base address of an array. 
+
+# Example of Arrays and Functions: 
+
+
+
+
+
+

@@ -1,0 +1,252 @@
+# Friend Functions in C++: 
+
+
+* Basically compiler is like a police and it doesn't allows any class's private data to be accessed by any foriegn function or you can say by any function which does not belongs to that class. 
+
+* We know that we can access public members of a class from anywhere directly using any object of that class, but we also know that private members of a class can only be accessed by member functions of that class and by friend functions of that class.
+
+
+
+@ Now let's study here that what are "Friend Functions": 
+
+
+* So, a foreign function cannot access private data of a class. 
+
+* But if we declare any foreign function as "friend" inside a class, then it can also access private members of that class. 
+
+
+@ So, a friend function is nothing but a foreign function which is trusted by the class and that's why it also have access to private members of a class even after not being a member function of that class. 
+
+@ Syntax: You can make any foreign function as friend function, you just to declare that function inside the class and also you have to use "friend" keyword before declaring it. 
+
+
+@ You cannot call a friend function of a class using a class's object, because it is not a member function of that class, only member functions of a class can be called using a class's object. Simply a friend function is a function which have access to private members of a class. 
+
+
+/* 
+# Properties of friend functions:
+1. Not in the scope of class
+2. since it is not in the scope of the class, it cannot be called from the object of that class. if(sumComplex() is a friend function of complex class and c1 be a object of complex class) then c1.sumComplex() == Invalid. 
+3. Can be invoked without the help of any object 
+4. Usually contains the objects as arguments 
+5. Can be declared inside public or private section of the class 
+6. It cannot access the members directly by their names and need object_name.member_name to access any member. 
+*/
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example-1 Code for Friend Functions in C++: 
+
+
+#include<iostream>
+using namespace std;
+
+
+class Complex{
+
+    private:
+        int a;
+        int b;
+
+    public: 
+        void setData(int g1, int g2); 
+
+        friend Complex setDataBySum(Complex o1, Complex o2);      // This is a "foreign function" which is not a part of this class and now it is here declared as a "friend function" inside this class. So, it's now a "friend function" of this class and now it can access private members of this class using this class's objects without any restrictions just like member functions of this class. 
+
+	    // This above "friend declaration statement" can be written in private section of class also and you can write it in public section of class also, there will be no error, you can do it either ways. 
+
+
+        void print1stNumber(void); 
+        void print2ndNumber(void); 
+        void printNumberAfterSum(void); 
+};
+
+
+void Complex::setData(int g1, int g2){
+    a = g1;
+    b = g2;
+}
+
+
+Complex setDataBySum(Complex o1, Complex o2){
+    
+    Complex o3;
+    o3.a = o1.a + o2.a;
+    o3.b = o1.b + o2.b;
+
+    return o3;
+}
+
+
+void Complex::print1stNumber(void){
+    cout << "* Your 1st complex number is: " << a << "+" << b << "i" << endl;
+}
+
+
+void Complex::print2ndNumber(void){
+    cout << "* Your 2nd complex number is: " << a << "+" << b << "i" << endl;
+}
+
+
+void Complex::printNumberAfterSum(void){
+    cout << "@ The sum of above two complex numbers is: " << a << "+" << b << "i" << endl;
+}
+
+
+int main(){
+
+    Complex c1, c2, c3;
+
+    cout<<endl;
+    
+    c1.setData(5, 1);
+    c1.print1stNumber();
+
+    c2.setData(0, 9);
+    c2.print2ndNumber();
+
+    c3 = setDataBySum(c1, c2);
+    c3.printNumberAfterSum();
+
+    cout<<endl;
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+@ In even simpler terms we can say that, "friend functions" are the non-member functions of a class, that can access and manipulate the private and protected members of that class for which they are declared as friends. 
+(We will study "protected" access specifier later on). 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example-2 Code for Friend Functions in C++ (Simple Example): 
+
+
+#include<iostream>
+using namespace std;
+
+
+class Y; // Forward declaration of class Y
+
+// This above forward declaration of class Y is required so that, friend statement in class X don't throw error, if we don't write this foward declaration statement then that friend statment in class X will throw error which will mean "How can you make a function friend which takes class Y as a parameter which is still not declared yet". 
+
+// Here in friend statment, error will be generated because of using a class as parameter which is not yet declared, and forward declaration helps to deal with that error. 
+
+
+class X{
+    int data;
+    public:
+        void setValue(int value){
+            data = value;
+        }
+    friend void add(X, Y);    
+};
+
+class Y{
+    int num;
+    public:
+        void setValue(int value){
+            num = value;
+        }
+    friend void add(X, Y);    
+
+};
+
+void add(X o1, Y o2){
+    cout<<"* Summing data of X and Y objects gives me output: "<< o1.data + o2.num;
+}
+
+
+int main(){
+
+    X a1;
+    a1.setValue(3);
+
+    Y b1;
+    b1.setValue(15);
+
+    add(a1, b1);
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example-3 Code for Friend Functions in C++ (Complex Example): 
+
+
+#include<iostream>
+using namespace std;
+
+
+class c2;             // Foward declaration of class c2, to avoid error in friend statement of class c1. 
+
+
+class c1{
+
+    int val1;
+
+    friend void exchange(c1 & , c2 &);              // As we know that by default evrything is private in a class and we also know that we can write a "friend declaration" statement inside private section of class also there will be no error. So, here I have declared a non-member function, exchange() function as friend inside the private section of this class. 
+
+    public:
+        void indata(int a){
+            val1 = a;
+        }
+
+        void display(void){
+            cout<< val1 <<endl;
+        }
+};
+
+
+class c2{
+
+    int val2;
+    friend void exchange(c1 &, c2 &);
+
+    public:
+        void indata(int a){
+            val2 = a;
+        }
+
+        void display(void){
+            cout<< val2 <<endl;
+        }
+};
+
+
+void exchange(c1 &x, c2 &y){
+
+    int tmp = x.val1;
+    x.val1 = y.val2;
+    y.val2 = tmp;
+}
+
+
+int main(){
+
+    c1 oc1;
+    c2 oc2;
+
+    oc1.indata(34);
+    oc2.indata(67);
+    exchange(oc1, oc2);
+
+    cout<<"* The value of c1 after exchanging becomes: ";
+    oc1.display();
+    cout<<"* The value of c2 after exchanging becomes: ";
+    oc2.display();
+    
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

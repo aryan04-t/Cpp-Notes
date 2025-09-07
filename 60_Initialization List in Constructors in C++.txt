@@ -1,0 +1,210 @@
+# Initialization List in Constructors: 
+
+
+* Initialization List or we can say Initialization Section in a constructor is just a way of initializing data members of a class. 
+
+* There is no more theory in this concept. So, let's just see the syntax and code of it directly. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Syntax of Initialization List in Constructors:
+
+
+/*
+
+constructor (argument-list) : initilization-section
+{
+    assignment + other code;
+}
+
+*/
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example Code for "Initialization List": 
+
+
+// Conventional way of initializing data members of a class using assignment operator 
+// In this code I have not used "Initialization List"
+
+#include<iostream>
+using namespace std;
+
+class Test{
+    int a;
+    int b;
+
+    public:
+        Test(int i, int j){
+
+            a = i;
+            b = j;
+
+            cout << "@ Constructor executed"<<endl;
+            cout << "* Value of a is: "<<a<<endl;
+            cout << "* Value of b is: "<<b<<endl;
+        }
+};
+
+int main(){
+
+    Test t(4, 6);
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+// Initializing data members of a class using "Initialization List" 
+// In this code I have used "Initialization List"
+
+#include<iostream>
+using namespace std;
+
+class Test{
+    int a;
+    int b;
+
+    public:
+        Test(int i, int j) : a(i), b(j){
+
+            cout << "@ Constructor executed"<<endl;
+            cout << "* Value of a is: "<<a<<endl;
+            cout << "* Value of b is: "<<b<<endl;
+        }
+};
+
+int main(){
+
+    Test t(4, 6);
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+* You can use either "Conventional Method" for initializing the data members of a class or you can also use "Initializtion List" method, both are valid. 
+
+* Just the thing is that "Initialization List" method is preferred by coders for initializing the data members of a class when the body of a constructor is very complex. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Different Ways of Using "Initialization List" method for Initializing Data Members of a Class: 
+
+
+// Different ways in which "Initialization List" can be used 
+
+#include<iostream>
+using namespace std;
+
+class Test{
+    int a;
+    int b;
+
+    public:
+        Test(int i, int j) : a(i), b(j){
+
+            cout << "@ Constructor Executed!!"<<endl;
+            cout << "* Value of a is: "<<a<<endl;
+            cout << "* Value of b is: "<<b<<endl;
+        }
+
+        /*
+        case1:
+        Test(int i, int j) : a(i), b(j){
+
+            cout << "@ Constructor executed"<<endl;
+            cout << "* Value of a is: "<<a<<endl;
+            cout << "* Value of b is: "<<b<<endl;
+        }
+
+        // This is a valid way of using "Initialization List" 
+        */
+
+        /*
+        case2:
+        Test(int i, int j) : a(i), b(i+j){
+
+            cout << "@ Constructor executed"<<endl;
+            cout << "* Value of a is: "<<a<<endl;
+            cout << "* Value of b is: "<<b<<endl;
+        }
+
+        // This is also a valid way of using "Initialization List" 
+        */
+
+        /*
+        case3:
+        Test(int i, int j) : a(i), b(2 * j){
+
+            cout << "@ Constructor executed"<<endl;
+            cout << "* Value of a is: "<<a<<endl;
+            cout << "* Value of b is: "<<b<<endl;
+        }
+
+        // This is also a valid way of using "Initialization List" 
+        */
+
+        /*
+        case4:
+        Test(int i, int j) : a(i){
+
+            b = j;
+
+            cout << "@ Constructor executed"<<endl;
+            cout << "* Value of a is: "<<a<<endl;
+            cout << "* Value of b is: "<<b<<endl;
+        }
+
+        // This hybrid way of using both "Conventional Method" and "Initialization List" is also a valid way to initialize the data members of class 
+        */
+
+        /*
+        case5:
+        Test(int i, int j) : a(i), b(a + j){
+
+            cout << "@ Constructor executed"<<endl;
+            cout << "* Value of a is: "<<a<<endl;
+            cout << "* Value of b is: "<<b<<endl;
+        }
+
+        // This is also a valid way of using "Initialization List" because "a" variable is initialized before "b" is getting initialized. So, we can use it's value there to initialize "b" variable and our program will not give us any errors or any garbage values. 
+        */
+
+        /*
+        case6:
+        Test(int i, int j) : b(j), a(b + j){
+
+            cout << "@ Constructor executed"<<endl; 
+            cout << "* Value of a is: "<<a<<endl; 
+            cout << "* Value of b is: "<<b<<endl; 
+        }
+
+        // This is not a valid way of using "Initialization List" because "a" variable is declared 1st in the private section of class. So, "a" should be 1st initialized but we're initializiing "b" here 1st.
+
+        // This will not lead to any compilation errors, the program will compile smoothly but "a" will give garbage values because "a" should be initialized first but it's not getting intialized first here.
+        
+        // This way of initializing the variables will only work smoothly without giving any garbage value, when we declare "b" variable 1st in private section of class and then the "a" variable. 
+        */
+};
+
+int main(){
+
+    Test t(4, 6);
+
+    return 0;
+}
+
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+

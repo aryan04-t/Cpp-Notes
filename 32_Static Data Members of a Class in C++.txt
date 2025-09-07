@@ -1,0 +1,85 @@
+# Static Data Members of a Class: 
+
+
+* "Static Data Members of a Class" are "static variables of class", and they're static variables only, but in this particular scenario they're "personal static varibales of a class". 
+
+* These "static variables of a class" are declared inside the class and they're also declared outside the class and if you need then you can also initialize them outside the class when you are declaring them outside, these static variables are also declared outside the class because the memory is allocated to these variables with respect to class and not with respect to each object. 
+
+* These "static data members of class" or you can say "static vatiables of class" are also called "Class Variables" in OOP. 
+
+* Static data members of class don't have unique value with respect to each object, because they're stored in the commonly shared static storage with context of class. 
+
+* That's why these "Static Data Members of Class" can be commonly accessed by all the objects of the same class, and all the objects of the same class can work together on these static variables of that class. 
+
+
+
+
+@ Static variables also have default values. So, even if you don't initialize "static int varibale" with 0, it still won't give you any garbage value because it has by default 0 value. 
+
+@ Only one copy of each static variable is made, because they're intialized only once and then they're maintained through out the lifetime of code. 
+
+@ Scope or you can say visibility of "Static Data Members of class" is inside the class only. 
+
+@ And static variables have liftime until program is terminated, memory allocated to these static varibales is freed after completion of whole program. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Code for Static Data Members of Class: 
+
+
+#include <iostream>
+using namespace std;
+
+class Employee{
+
+    private:
+        int id;
+
+        // This is the syntax for declaring "static data member of class" inside the class
+        static int count;                 // Static data member of class
+
+    public:
+        void setData();
+        void getData();
+};
+
+
+// This is the syntax for declaring "static data member of class" outside the class 
+int Employee::count = 1000;           // Default value is 0 but here we have intialized the variable with 1000 value 
+
+
+void Employee::setData(){
+    cout << "* Enter the id of the employee: ";
+    cin >> id;
+    count++;
+}
+
+void Employee::getData(){
+    cout << "@ Id of the Employee is " << id << ", & count of Employee is: " << count << endl;
+    cout << endl;
+}
+
+int main(){
+
+    Employee Aryan;
+    Aryan.setData();
+    Aryan.getData();
+
+    Employee Hehehe;
+    Hehehe.setData();
+    Hehehe.getData();
+
+    Employee Hahaha;
+    Hahaha.setData();
+    Hahaha.getData();
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

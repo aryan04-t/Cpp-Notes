@@ -1,0 +1,96 @@
+# Default & Compulsory Arguments of a Function: 
+
+
+* A default argument is a value provided in a function declaration that is automatically assigned by the compiler if the calling function doesn’t provide a value for the argument. 
+
+* In case any value is passed, the default value is overridden. 
+
+* The arguments which are given default values are called "Compulsory Arguments". 
+
+* Default arguments are useful when we want to increase the capabilities of an existing function.
+
+
+@ Important Point to Keep in Mind:
+---> Always keep the "Default Arguments" in the extreme right side & the "Compulsory Arguments" in the left side, inside the function parameter area, otherwise the code will give error. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Code for Compulsory & Default Arguments of a Function:
+
+
+#include<iostream>
+using namespace std;
+
+// Code for "Compulsory & Default Arguments" 
+
+float moneyReceived(int currentMoney, float factor=1.04){
+    return currentMoney * factor;
+}
+
+int main(){
+
+    int money = 100000;
+
+    cout<<endl;
+
+    cout<<"* If you have "<<money<<" Rs in your bank account, you will receive "<<moneyReceived(money)<< "Rs after 1 year. "<<endl;
+
+    cout<<endl;
+
+    cout<<"* For VIP: If you have "<<money<<" Rs in your bank account, you will receive "<<moneyReceived(money, 1.1)<< " Rs after 1 year."<<endl;
+
+    cout<<endl;
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+# Constant Arguments of a Function: 
+
+
+* You can declare an argument of a function as constant using "const" keyword, if needed. 
+
+* Constant arguments are used when you don’t want your values to be changed or modified by the function. 
+
+* Making an argument constant in a function helps a lot when we are passing "reference variables" or "pointers" in the function as parameter, and we don't want that the values of that parameter should be changed even by mistake. ("Arguments" of a function and "Parameters" of a function, both mean same thing, these are just two different words which are used to refer the same thing)  
+
+* Even when we are using "Call by Value" method and we're not passing "reference variables" or "pointers" to the function as argument, still in some cases making arguments as constant can be benificial when we don't want the values to be modified by the function. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Code for Costant Arguments of a Function: 
+
+
+#include <iostream>  
+using namespace std;  
+
+// create an integer printNumber() function which contains an constant argument num  
+int printNumber(const int num){  
+
+    // if we change the value of the const argument num, it throws an error.  
+    // num = num + 10;  
+
+    cout << "@ The value of num is: " << num << endl;   
+
+    return 0;
+}  
+
+int main(){  
+
+    // call function  
+    printNumber(5);  
+
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

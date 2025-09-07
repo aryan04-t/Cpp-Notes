@@ -1,0 +1,89 @@
+# File Input-Output, Working with Files in C++: 
+
+
+* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include<iostream>
+#include<fstream>
+#include<string>
+
+using namespace std;
+
+
+int main(){
+
+    string str1, str2; 
+
+    // Create a file named "a.txt" and "b.txt" in the folder where this "cpp" file is present and write one line in "b.txt" file, I have written "Hii, My name is Aryan Tomar" 
+
+
+    // Here we're creating an object of "ofstream" class which is available in "fstream" header file 
+    ofstream out("a.txt");              // we're creating an object named "out", and opening a txt file named "a" using the constructor 
+    out<<"Hehehe";                      // here we're using "out" object with insertion operator "<<" to write a string inside the "a.txt" file 
+
+
+    // Here we're creating an object of "ifstream" class which is also available in "fstream" header file 
+    ifstream in("b.txt");               // we're creating an object named "in", and we're opening a txt file named "b" using the constructor 
+    in>>str2;                           // here we're using "in" object to read from the file and to write into the string named "str2" 
+    
+    // "ifstream" class cannot read spaces and new lines so, that's why if there is any space or new line given in the text file, then it will only read until that space of next line and the text ahead of that space or new line will not be read and stored in the string 
+
+    cout<<str2;                         // I have written "Hii, My name is Aryan Tomar" in file "b.txt", that's why when we print str2 we only get "Hii," printed on the console 
+
+
+    return 0;
+}
+
+
+
+
+
+#include<iostream>
+#include<fstream>
+#include<string>
+
+using namespace std;
+
+
+int main(){
+
+    string str1, str2; 
+
+    // Create a file named "b.txt" in the folder where this "cpp" file is present and write one line in "b.txt" file, I have written "Aur bhai kaisa hai" 
+
+
+    ifstream in("b.txt");               // we're creating an object named "in", and we're opening a txt file named "b" using the constructor 
+    in>>str2;     
+
+
+    // But there is a function named getline() in the "string" header file, you can use it here to read a full line and you can keep executing it until all lines are read in the "txt" file 
+
+    // We've to pass 2 parameters to the getline() function, 1st one is an "ifstream" object and 2nd one is a string in which the text will be stored after reading from the file using "ifstream" object 
+
+    getline(in, str2);
+    cout<<str2;                          // Now this line will print the whole 1st line of "b.txt" file even if there are spaces in it 
+
+
+    return 0;
+}
+
+
+
+
+
+
+

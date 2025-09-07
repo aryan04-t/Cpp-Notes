@@ -1,0 +1,55 @@
+# Enums: 
+
+
+* "Enums" word is an abbrevation of word "Enumerations" 
+
+* & the meaning of "Enumerations" is pretty simple, it just means "counting" or we can say "ordered listing of all the items in a collection" 
+
+* So, Enums are user-defined types that consist of named integral constants 
+
+* It helps to assign constants to a set of names to make the program easier to read, maintain and understand 
+
+* An Enumeration is declared by using the keyword "enum" 
+
+
+@ You can declare structures, unions & enums locally or globally, as per requirement. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+# Example Code for Better Understanding Enums: 
+
+
+#include<iostream>
+using namespace std;
+
+enum Meal{
+    Breakfast, Lunch, Dinner
+};
+
+// This above one is a global enum 
+
+int main(){
+
+    // enum Meal{Breakfast, Lunch, Dinner};                  // ---> You can declare enum inside the int main also 
+    // This above one is a local enum 
+
+    Meal m1 = Breakfast; 
+    Meal m2 = Lunch; 
+    Meal m3 = Dinner; 
+
+    cout << "* The numerical value "<<"assigned to Breakfast is : " << m1 << endl;
+ 
+    cout << "* The numerical value "<<"assigned to Lunch is : " << m2 << endl;
+
+    cout << "* The numerical value "<<"assigned to Dinner is : " << m3 << endl;
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

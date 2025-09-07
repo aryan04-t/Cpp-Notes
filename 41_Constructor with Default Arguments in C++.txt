@@ -1,0 +1,67 @@
+# Constructor with Default Arguments: 
+
+
+* Just like we have seen before that we can give default arguments to a function, like that we can give default arguments to a constructor also. 
+
+* let's see the code directly there's no more theory in this topic. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example Code for Constructor with Default Arguments: 
+
+
+#include<iostream>
+using namespace std;
+
+class Simple{
+    int data1;
+    int data2;
+    int data3;
+
+    public:
+        // Here also this rule is followed that, you should keep the default arguments always to the right most side and the compulsory arguments on the left side 
+        Simple(int a, int b=9, int c=8){
+            data1 = a;
+            data2 = b;
+            data3 = c;
+        }
+
+        void printData();
+
+};
+
+void Simple :: printData(){
+    
+    cout<< "* The value of data1, data2 and data3 is " << data1 << ", " << data2 << " and " << data3 << endl;
+    cout<<endl;
+}
+
+
+int main(){
+
+    Simple b(20, 30, 100);
+    cout<<endl;
+    b.printData();
+
+    Simple s(0, 15);
+    s.printData();
+
+    Simple d(2000);
+    d.printData();
+
+    Simple k(69, 96);
+    k.printData();
+
+    // Whenever we don't pass values to the parameters which have default values in the constructor, at that time those default values are used 
+    // And when we pass values to the parameters which have default values in the constructor, at that time the new passed values override the default values in the arguments and the passed values to the arguments in the constructor are used.  
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

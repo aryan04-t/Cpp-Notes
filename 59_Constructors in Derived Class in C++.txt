@@ -1,0 +1,231 @@
+# Order of Execution of Constructors in Derived Class: 
+
+
+* Whenever we use derived class to make an object, constructor of base class is invoked first then derived class's constructor is invoked. 
+
+* In multiple inheritance, the constructors are executed in the order of inheritance. 
+
+* In multilevel inheritance, the constructors are executed in the order of inheritance. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Special Case of Virtual Base Class Constructors: 
+
+
+* Constructors for "virtual base classes" are invoked before an "non-virtual base class". 
+
+* If there are multiple virtual base classes, then they're invoked in the declared order. 
+
+* Any non-virtual base class constructor is then executed before the derived class constructor is executed. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Examples for Order of Execution of Constructors: 
+
+
+/*
+
+Case1:
+class A{
+
+};
+
+class B: public A{
+   // Order of execution of constructor -> first A() then B()
+   // Here this is "Single Inheritance". So, we know that first constructor of "Base Class" will be invoked, then the constructor of "Derived Class" will be invoked. 
+};
+
+
+Case2:
+class B{
+    
+};
+
+class C{
+
+};
+
+class A: public B, public C{
+    // Order of execution of constructor -> B() then C() and A()
+    // Here this is "Multiple Inheritance". So, we know that first constructor of "Base Classes" will be invoked in the declared order, then the constructor of "Derived Class" will be inkoved. 
+};
+
+
+Case3:
+class B{
+    
+};
+
+class C{
+
+};
+
+class A: public C, public B{
+    // Order of execution of constructor -> C() then B() and A()
+    // Here this is "Multiple Inheritance". So, we know that first constructor of "Base Classes" will be invoked in the declared order, then the constructor of "Derived Class" will be inkoved. 
+};
+
+
+Case4:
+class B{
+    
+};
+
+class D{
+
+};
+
+class A: public B, virtual public D{ 
+    // Order of execution of constructor -> D() then B() and A() 
+    // Here this is "Multiple Inheritance with Virtual Base Class". So, we know that first constructor of "Virtual Base Class" will be invoked in the declared order, then the constructor of "Non-Virtual Base Class" will be invoked in the declared order, after that constructor of "Derived Class" will be inkoved. 
+};
+
+
+Case5:
+class A{
+    
+};
+
+class B : public A{
+
+};
+
+class C : public B{
+    // Order of execution of constructor -> A() then B() and C() 
+    // This is "Multilevel Inheritance" and as we know that in "Multilevel Inheritance" the constructors are executed in the order of inheritance. 
+};
+
+*/
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+# Special Syntax of Dervied Class Constructor to Initialize even Base Class Data Members: 
+
+
+* C++ supports a special syntax for passing arguments to multiple base classes. 
+
+* The constructor of the derived class receives all the arguments at once and then will pass the calls to the respective base classes. 
+
+/*
+
+Syntax: 
+
+Derived-Constructor (arg1, arg2, arg3, arg4, arg5, ...): Base 1-Constructor (arg1,arg2), Base 2-Constructor(arg3,arg4){
+    // Body of Derived Constructor 
+}
+
+*/
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example Code for "Special Syntax of Derived Class Constructor": 
+
+
+// Code for Special Syntax of Derived Class Constructor which can be used for Initializing even Base Class Data Members 
+
+#include<iostream>
+using namespace std;
+
+
+class Base1{
+    int data1;
+    public:
+        Base1(int i){
+            data1 = i;
+            cout<<"@ Base1 class constructor called"<<endl;
+        }
+        void printDataBase1(void){
+            cout<<"* The value of data1 is: "<<data1<<endl;
+        }
+};
+
+
+class Base2{
+    int data2;
+
+    public:
+        Base2(int i){
+            data2 = i;
+            cout << "@ Base2 class constructor called" << endl;
+        }
+        void printDataBase2(void){
+            cout << "* The value of data2 is: " << data2 << endl;
+        }
+};
+
+
+// Case 1: In this case Constructor of Base1 will be called first then Constructor of Base2 and After that constructor of Derived will be invoked. 
+class Derived: public Base1, public Base2{
+    int derived1, derived2;
+    public:
+        Derived(int a, int b, int c, int d) : Base1(b), Base2(a){
+            derived1 = c;
+            derived2 = d;
+            cout<< "@ Derived class constructor called"<<endl;
+        }
+        void printDataDerived(void){
+            cout << "* The value of derived1 is: " << derived1 << endl;
+            cout << "* The value of derived2 is: " << derived2 << endl;
+        }
+};
+
+
+/*
+// Case 2: In this case also Constructor of Base1 will be called first then Constructor of Base2 and After that constructor of Derived will be invoked. 
+class Derived: public Base1, public Base2{
+    int derived1, derived2;
+    public:
+        // Changing the pattern order here of base classes while defining the derived class constructor doesn't impacts the way constructors are invoked. As we have studied in the theory before, we know that it is impacted just by the order by which they are declared while inheritance is being performed when this class is created. 
+        Derived(int a, int b, int c, int d) : Base2(b), Base1(a){
+            derived1 = c;
+            derived2 = d;
+            cout<< "@ Derived class constructor called"<<endl;
+        }
+        void printDataDerived(void){
+            cout << "* The value of derived1 is: " << derived1 << endl;
+            cout << "* The value of derived2 is: " << derived2 << endl;
+        }
+};
+*/
+
+
+/*
+// Case 3: In this case Constructor of Base2 will be called first then Constructor of Base1 and After that constructor of Derived will be invoked. 
+// Chaning the order of declaration of base classes here at the time of inheritance immpacts the way constructors are invoked 
+class Derived: public Base2, public Base1{
+    int derived1, derived2;
+    public:
+        Derived(int a, int b, int c, int d) : Base1(b), Base2(a){
+            derived1 = c;
+            derived2 = d;
+            cout<< "@ Derived class constructor called"<<endl;
+        }
+        void printDataDerived(void){
+            cout << "* The value of derived1 is: " << derived1 << endl;
+            cout << "* The value of derived2 is: " << derived2 << endl;
+        }
+};
+*/
+
+
+int main(){
+
+    Derived Aryan(1, 2, 3, 4);
+    Aryan.printDataBase1();
+    Aryan.printDataBase2();
+    Aryan.printDataDerived();
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+

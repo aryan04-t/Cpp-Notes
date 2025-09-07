@@ -1,0 +1,287 @@
+// @ Code for the Given Practice Exercise Question: 
+
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+using namespace std;
+
+
+class SimpleCalculator{
+    private:
+        float input1;
+        float input2;
+        int operation;
+        char from;
+        float result;
+    
+    public:
+        void take_Input();
+        void simple_Calculations();
+        void simple_Display();
+};
+
+
+void SimpleCalculator :: take_Input(){
+
+    cout << "# Welcome to the \"Simple Calculator\" " << endl;
+
+    cout << endl;
+
+    cout << "* Enter the 1st Number: ";
+    cin >> input1;
+
+    cout << "* Enter the 2nd Number: ";
+    cin >> input2;
+
+    cout << endl;
+
+    cout << "@ Which Operation Do You Want to Perform?" << endl;
+    cout << "* Enter the number with respect to the operation to select it." << endl;
+    cout << "1. Addition        2. Subtraction        3. Multiplication        4. Division"  << endl;
+    cout << "Waiting for your input... " << endl; 
+    cin >> operation;
+
+    if(operation == 2){
+        cout << endl;
+        cout << "* Enter the character with respect to the operation to select it." << endl;
+        cout << "---> a. Do you want to subtract " << input1 << " from " << input2 << endl;
+        cout << setw(22)  << "OR" << endl; 
+        cout << "---> b. Do you want to subtract " << input2 << " from " << input1 << endl;
+        cout << "Waiting for your input... " << endl; 
+        cin >> from;
+    }
+    else if(operation ==4){
+        cout << endl;
+        cout << "* Enter the character with respect to the operation to select it." << endl;
+        cout << "---> a. Do you want to divide " << input1 << " by " << input2 << endl;
+        cout << setw(22)  << "OR" << endl; 
+        cout << "---> b. Do you want to divide "<< input2 << " by " << input1 << endl;
+        cout << "Waiting for your input... " << endl; 
+        cin >> from;
+    }
+
+    cout << endl;
+}
+
+
+void SimpleCalculator :: simple_Calculations(){
+
+    if(operation == 1){
+        result = (input1 + input2);
+    }
+    else if(operation == 2){
+        if(from == 'a'){
+            result = (input2 - input1);
+        }
+        else if(from == 'b'){
+            result = (input1 - input2);
+        }
+    }
+    else if(operation == 3){
+        result = (input1 + input2);
+    }
+    else if(operation == 4){
+        if(from == 'a'){
+            result = (input1 / input2);
+        }
+        else if(from == 'b'){
+            result = (input2 / input1);
+        }
+    }
+}
+
+
+void SimpleCalculator :: simple_Display(){
+
+    if(operation == 1){
+        cout << "# Sum of " << input1 << " and " << input2 << " is: " << result << endl; 
+        cout << endl;
+        cout << " ----------- X ------ X -----------" << endl;
+        cout << endl;
+    }
+    else if(operation == 2){
+        if(from == 'a'){
+            cout << "# Result after subtracting " << input1 << " from " << input2 << " is: " << result << endl;
+            cout << endl;
+            cout << " ----------- X ------ X -----------" << endl;
+            cout << endl;
+        }
+        else if(from == 'b'){
+            cout << "# Result after subtracting " << input2 << " from " << input1 << " is: " << result << endl;
+            cout << endl;
+            cout << " ----------- X ------ X -----------" << endl;
+            cout << endl;
+        }
+    }
+    else if(operation == 3){
+        cout << "# Product of " << input1 << " and " << input2 << " is: " << result << endl;
+        cout << endl;
+        cout << " ----------- X ------ X -----------" << endl;
+        cout << endl;
+    }
+    else if(operation == 4){
+        if(from == 'a'){
+            cout << "# Result after dividing " << input1 << " by " << input2 << " is: " << result << endl;
+            cout << endl;
+            cout << " ----------- X ------ X -----------" << endl;
+            cout << endl;
+        }
+        else if(from == 'b'){
+            cout << "# Result after dividing " << input2 << " by " << input1 << " is: " << result << endl;
+            cout << endl;
+            cout << " ----------- X ------ X -----------" << endl;
+            cout << endl;
+        }
+    }
+}
+
+
+// ---------------------------------------------------------------------------------------------------------
+
+
+class ScientificCalculator{
+    private:
+        float input1;
+        float input2;
+        int operation;
+        float result;
+        int factorial(int);
+
+    public: 
+        void set_Input();
+        void scientific_Calculations();
+        void scientific_Display();
+};
+
+
+void ScientificCalculator :: set_Input(){
+
+    cout << "# Welcome to the \"Scientific Calculator\" " << endl;
+    
+    cout << endl;
+
+    cout << "@ Which Operation Do You Want to Perform?" << endl;
+    cout << "* Enter the number with respect to the operation to select it." << endl;
+    cout << "1. Mod        2. Factorial        3. Raise to Power        4. Log"  << endl;
+    cout << "Waiting for your input... " << endl; 
+    cin >> operation;
+
+    cout << endl;
+
+    if(operation == 1 || operation == 3){
+        cout << "* Enter the 1st Number: ";
+        cin >> input1;
+
+        cout << "* Enter the 2nd Number: ";
+        cin >> input2;
+
+        cout << endl;
+    }
+    else{
+        cout << "* Enter the Number: ";
+        cin >> input1;
+
+        cout << endl;
+    }
+}
+
+
+int ScientificCalculator :: factorial(int a){
+    if(a < 0){
+        cout << "Error!!! Wrong Input" << endl;
+        exit(0);
+    }
+    else if(a == 0 || a==1){
+        return 1;
+    }
+    else{
+        return (a * factorial(a-1));
+    }
+
+}
+
+void ScientificCalculator :: scientific_Calculations(){
+
+    if(operation == 1){
+        float temp = input1 / input2;
+        result = (input1 - ((floor(temp))*input2));
+    }
+    else if(operation == 2){
+        result = factorial(input1);
+    }
+    else if(operation == 3){
+        result = pow(input1, input2);
+    }
+    else if(operation == 4){
+        result = log10(input1);
+    }
+}
+
+
+void ScientificCalculator :: scientific_Display(){
+
+    if(operation == 1){
+        cout << "# " << input1 << " Mod " << input2 << " = " << result << endl;
+        cout << endl;
+        cout << " ----------- X ------ X -----------" << endl;
+        cout << endl;
+    }
+    else if(operation == 2){
+        cout << "# Factorial of " << input1 << " is: " << result << endl;
+        cout << endl;
+        cout << " ----------- X ------ X -----------" << endl;
+        cout << endl;
+    }
+    else if(operation == 3){
+        cout << "# " << input1 << " Raise to Power " << input2 << " = " << result << endl;
+        cout << endl;
+        cout << " ----------- X ------ X -----------" << endl;
+        cout << endl;
+    }
+    else if(operation == 4){
+        cout << "# Value of Log " << input1 << " to the base 10 is: " << result << endl;
+        cout << endl;
+        cout << " ----------- X ------ X -----------" << endl;
+        cout << endl;
+    }
+}
+
+
+// ---------------------------------------------------------------------------------------------------------
+
+
+class HybridCalculator : public SimpleCalculator, public ScientificCalculator{
+
+};
+
+
+// ---------------------------------------------------------------------------------------------------------
+
+
+int main(){
+
+    // Ans1. We are using "Multiple Inheritance". 
+    // Ans2. We are using "public" visibility mode of Inheritance. Which will inherit all the "protected" members of base class as "protected" members in the derived class, and it will also inherit all the "public" members of base class as the "public" members of derived class. 
+
+    // Ans3. Creating an object of HybridCalculator and displaying results of SimpleCalculator and ScientificCalculator: 
+
+    HybridCalculator hc;
+
+    // Invoking functions of SimpleCalculator class by using object of HybridCalculator class 
+    hc.take_Input();
+    hc.simple_Calculations();
+    hc.simple_Display();
+
+    // Invoking functions of ScientificCalculator class by using object of HybridCalculator class 
+    hc.set_Input();
+    hc.scientific_Calculations();
+    hc.scientific_Display();
+
+    // Ans4. Code Reusability is implemented using Inheritance, where you follow the DRY (Don't Repeat Yourself) principle of coding and you don't code things again which you have already coded in classes. Instead, you just inherit those classes and reuse the code which you have already coded. 
+
+    return 0;
+}
+
+
+
+

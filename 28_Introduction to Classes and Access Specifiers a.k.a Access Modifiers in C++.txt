@@ -1,0 +1,174 @@
+# Introduction to Classes and Access Specifiers a.k.a Access Modifiers, and Understanding How Classes are Related to Structures in C++: 
+
+
+* Class is nothing but extension of Structures which were used in C and we have also studied them earlier in the notes in C++. 
+
+* By default eveything in a structure is public. 
+
+* & by default everything in a class is private. 
+
+
+* Structure is really powerful, you can put arrays, pointers, int, float and all types of datatypes inside it, then why we need classes?
+
+* We need classes because there are two limitations in structures, first one is that "all the data members are public". So, "data hiding is not present there in a structure", you can access the members of structure from anywhere, that's why structure is not safe specifically when you want the data to be secure. 
+---> Ex: Banking System, here you cannot use structure to make this system, because security is really essential here. 
+
+* And the second limitation of structures is that, you cannot put a function inside a structure, but both of these limitations of structures can be overcome using "Classes", that's why we need them. 
+
+
+* Syntax: class Name_of_the_Class{};
+---> you can make a class using "class" keyword and remember that it should end with a semicolon just like structures. 
+---> "public" and "private" are the access specifiers which can be used inside a class. 
+---> In total there are 3 access specifiers, there is also a 3rd access specifier known as "protected" and this can also be used inside a class but we will study about it afterwards. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Some Common Terminologies with Respect to Class: 
+
+@ Everything present in a class which belongs to it is a member of it. 
+@ Data members of the class are the variables which are present inside the class. 
+@ & Member functions of the class are the functions which are present inside the class. 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example Code for Class:
+
+
+#include<iostream>
+using namespace std;
+
+
+/* There are two methods of defining and declaring member functions of a class: 
+    (i) Declaring the function in the class and giving definition outside the class 
+    (ii) Declaring the function inside the class and also giving the definition inside the class 
+*/  
+
+
+class Numbers{
+
+    private:
+        int u, f, o;
+    public:
+        int j, k;
+
+        void setData(int a1, int b1, int c1);       // I have only given declaration of function here, I will define it outside the class, this is the 1st method of declaring and defining member functions 
+
+        void displayData(){ 
+
+            // Here I have declared the function and I have also given the definition to it here only, this is the 2nd method of declaring and defining the member functions. 
+
+            cout<<"* The value of u is: "<<u<<endl;
+            cout<<"* The value of f is: "<<f<<endl;
+            cout<<"* The value of o is: "<<o<<endl;
+            cout<<"* The value of j is: "<<j<<endl;
+            cout<<"* The value of k is: "<<k<<endl;
+        }
+};
+
+
+// I have given definition to the "setData()" function of "Numbers" class here, as per the 1st method of giving declaration and definition to member functions 
+
+// When we give definition to a function outisde the class, we have to use scope resolution operator and with that we have to specify the class in which the function which we're defining is present 
+void Numbers :: setData(int a1, int b1, int c1){
+    u = a1;
+    f = b1;
+    o = c1;
+}
+
+
+int main(){
+
+    Numbers Num;               // I have created an object named "Num" here of "Numbers" class 
+    
+    // Num.u = 100;            // ---> This will give error here, because "u" is a private data member of "Numbers" class 
+
+    /*
+        # Public Access Specifier: 
+        ---> Public members are accessible from outside the class. 
+        ---> The data members and member functions declared public can be accessed by other classes too. 
+        ---> The public members of a class can be accessed from anywhere in the program using the direct member access operator (.) with the object of that class. 
+    */
+
+    /*
+        # Private Access Specifier: 
+        ---> Private members cannot be accessed (or viewed) from outside the class. 
+        ---> The class members declared as private can be accessed only by the functions inside the class. 
+        ---> They are not allowed to be accessed directly by any object or function outside the class. 
+        ---> Only the member functions or the friend functions are allowed to access the private data members of a class. (these member functions can be public also and private also, and we will study about friend functions later) 
+    */
+
+    Num.j = 423;
+    Num.k = 654;
+
+    Num.setData(33, 55, 77); 
+
+    Num.displayData(); 
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+* A class is just like a structure but it has "public", "private" & "protected" data members to implement security and it can also have functions in it. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+* You can also declare objects along with the class declaration like this: 
+
+
+# Example Code for Declaring Objects Along with Class: 
+
+
+#include<iostream>
+using namespace std;
+
+
+class Numbers{
+
+    private:
+        int u, f, o;
+    public:
+        int j, k;
+
+        void setData(int a1, int b1, int c1);       
+
+        void displayData(){
+            cout<<"* The value of u is: "<<u<<endl;
+            cout<<"* The value of f is: "<<f<<endl;
+            cout<<"* The value of o is: "<<o<<endl;
+            cout<<"* The value of j is: "<<j<<endl;
+            cout<<"* The value of k is: "<<k<<endl;
+        }
+} Num;
+
+
+void Numbers::setData(int a1, int b1, int c1){
+    u = a1;
+    f = b1;
+    o = c1;
+}
+
+
+int main(){
+
+    Num.j = 423;
+    Num.k = 654;
+
+    Num.setData(33, 55, 77); 
+
+    Num.displayData(); 
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+

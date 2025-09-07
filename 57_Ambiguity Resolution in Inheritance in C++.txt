@@ -1,0 +1,116 @@
+# Ambiguity Resolution in Inheritance: 
+
+
+* Whenever we perform Inheritance and we make a derived class from 2 or more than 2 base classes, then there are chances that 2 or more than 2 base classes have a function with same name and same signature.  
+
+* Now, when you create an object of derived class and call this function which was present in more than 1 base class with same name and same signature, then the compiler gets confused that which base class's inherited function should I call, it says that "There is no exactness in your call, it's an ambiguous request by you to call this function, I have more than one options, which class's function should I call?". 
+
+* In this scenario, this ambiguity which is arised, it can be solved using scope resolution operator "::". 
+
+* Let's see the code and understand the situation much more precisely. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example Code for Ambiguity Resolution in Inheritance: 
+
+
+// Here we will see the ambuiguity that arises in multiple inheritance 
+// This code will give an ambiguity error 
+
+#include<iostream>
+using namespace std;
+
+class Base1{
+    public:
+        void greet(){
+            cout << "* What's Up?" << endl;
+        }
+};
+
+class Base2{
+    public:
+        void greet(){
+            cout << "@ Aur bhai!! Kya haal chaal hain??" << endl;
+        }
+};
+
+
+class Derived : public Base1, public Base2{
+
+};
+
+
+int main(){
+
+    Base1 base1obj;
+    Base2 base2obj;
+    
+    base1obj.greet();
+    base2obj.greet();
+
+    cout << endl;
+
+    Derived d;
+    d.greet();               // Here an ambiguity error will arise, because the derived class now have 2 functions which are named greet() and both the functions have exactly same name and same signature. One derived class has inherited from Base1 class and one it has inherited from Base2 class 
+
+    // And when we're calling greet() function using the object of derived class, compiler don't know which function it should use out of both the functions which are present in derived class, because both have the same name and same signature. 
+
+    return 0;
+}
+
+_ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+// In this code we have fixed the error of above code  
+
+#include<iostream>
+using namespace std;
+
+class Base1{
+    public:
+        void greet(){
+            cout << "* What's Up?" << endl;
+        }
+};
+
+class Base2{
+    public:
+        void greet(){
+            cout << "@ Aur bhai!! Kya haal chaal hain??" << endl;
+        }
+};
+
+
+class Derived : public Base1, public Base2{
+    public:
+        // As we have studied before, if we define a function with same name and same signature in derived class also, then it overrides the function which it has inherited from base class 
+        void greet(){ 
+            // Either we can give new definition here to this function 
+            Base2 :: greet();           // Or here we can solve the ambiguity by using scope resolution operator "::" and by specifying that which class's greet() function should be called if we call greet() function using derived class's object 
+        }
+};
+
+
+int main(){
+
+    Base1 base1obj;
+    Base2 base2obj;
+    
+    base1obj.greet();
+    base2obj.greet();
+
+    cout << endl;
+
+    Derived d;
+    d.greet();               // Ambiguity is solved now!! ;)
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+
+

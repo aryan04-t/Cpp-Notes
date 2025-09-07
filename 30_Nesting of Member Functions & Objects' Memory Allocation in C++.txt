@@ -1,0 +1,102 @@
+# Nesting of Member Functions: 
+
+
+* If one member function is called inside the other member function of the same class then it is called nesting of member functions. 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+# Example Code for Nesting of Member Functions: 
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class binary{
+    private:
+        string s;
+        void chk_binary(void);
+
+    public:
+        void read(void);
+        void ones_compliment(void);
+        void display(void);
+};
+
+void binary::read(void){
+    cout << "@ Enter a binary number: " << endl;
+    cin >> s;
+}
+
+void binary::chk_binary(void){
+    for (int i = 0; i < s.length(); i++){
+        if (s.at(i) != '0' && s.at(i) != '1'){
+            cout << "*** Incorrect binary format ***" << endl << "# Try again by entering a valid binary number." << endl;
+            exit(0);
+        }
+    }
+}
+
+void binary::ones_compliment(void){
+
+    chk_binary();       // This is called nesting of member funtions, because we have called chk_binary() member function inside the ones_compliment() member function here. 
+
+    // As the chk_binary() function is private, it can only be accessed by member functions and friend functions of the class only, it cannot be accessed from outside the class. 
+
+    cout << "* Doing ones compliment of your given binary number..." << endl;
+    for (int i = 0; i < s.length(); i++){
+        if (s.at(i) == '0'){
+            s.at(i) = '1';
+        }
+        else{
+            s.at(i) = '0';
+        }
+    }
+}
+
+void binary::display(void){
+    cout << "# Displaying your binary number: " << endl;
+    cout << s << endl;
+}
+
+int main(){
+
+    binary b;
+    b.read();
+
+    // b.chk_binary();              // ---> chk_binary() function is private that's why this line will throw error, you cannot access chk_binary() function inside a function which doesn't belongs inside the binary class 
+
+    b.display();
+    b.ones_compliment();
+    b.display();
+
+    return 0;
+}
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+# Objects' Memory Allocation: 
+
+
+* Whenever we write a class, we don't use memory at all, but whenever we create any objects of any class, at that time memory is allocated to objects.
+
+* But this above statement is partly true. 
+
+* Because if a class have 2 functions and 3 variables and we're creating 4 objects A, B, C & D using that class, then if the memory is allocated for those 2 functions of class also 4 times individually whenever we created a new object then that doesn't makes sense, because all the 4 objects want to use the same function with same logic then what's the point to allocate new memory to the function repitetively whenever we create a new object. 
+
+* C++ Compiler does memory allocation really smartly. 
+
+* So, that's why some memory which is allocted by the compiler is common for all the objects of a class, and this common memory is shared by member functions of class, because they don't need new memory everytime a new object is created, they have the same logic and all the objects can use them commonly and these functions can be kept in common memory for each object of that class. 
+
+* But compiler always allocates new memory for variables of class for every new object, because these values want to have the capability to be different for each object, that's why for variables of class, with respect to each object a new memory is allocated. 
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+
+
